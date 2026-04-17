@@ -1,6 +1,6 @@
 [
     {
-        "label": "Videos",
+        "label": "视频",
         "path": "library://video/",
         "icon": "special://skin/extras/icons/video.png",
         "target": "videos",
@@ -12,42 +12,42 @@
         "submenulist_target": "videos",
         "widgets": [
             {
-                "label": "New Movies",
+                "label": "最新电影",
                 "icon": "special://skin/extras/icons/list-ol.png",
                 "path": "special://skin/extras/playlists/NewMovies.xsp",
                 "target": "videos",
                 "widget_style": "Landscape"
             },
             {
-                "label": "New TV Shows",
+                "label": "最新电视剧",
                 "path": "special://skin/extras/playlists/NewShows.xsp",
                 "icon": "DefaultRecentlyAddedMovies.png",
                 "target": "videos",
                 "widget_style": "Landscape"
             },
             {
-                "label": "Recent Movies",
+                "label": "最近添加的电影",
                 "path": "special://skin/extras/playlists/RecentMovies.xsp",
                 "icon": "special://skin/extras/icons/list-ol.png",
                 "target": "videos",
                 "widget_style": "Landscape"
             },
             {
-                "label": "Recent TV Shows",
+                "label": "最近添加的电视剧",
                 "path": "special://skin/extras/playlists/RecentTvShows.xsp",
                 "icon": "DefaultMusicRecentlyPlayed.png",
                 "target": "videos",
                 "widget_style": "Landscape"
             },
             {
-                "label": "In-Progress TV Shows",
+                "label": "正在观看的电视剧",
                 "path": "library://video/tvshows/inprogressshows.xml",
                 "icon": "special://skin/extras/icons/timer.png",
                 "target": "videos",
                 "widget_style": "Landscape"
             },
             {
-                "label": "Random Movies",
+                "label": "随机电影",
                 "path": "special://skin/extras/playlists/RandomMovies.xsp",
                 "icon": "special://skin/extras/icons/list-ol.png",
                 "target": "videos",
@@ -56,7 +56,7 @@
         ]
     },
     {
-        "label": "Add-ons",
+        "label": "插件",
         "path": "ActivateWindow(1132)",
         "icon": "special://skin/extras/icons/addon.png",
         "target": "",
@@ -64,19 +64,19 @@
         "guid": "guid-82cc4511",
         "submenu": [
             {
-                "label": "Video Add-ons",
+                "label": "视频插件",
                 "icon": "special://skin/extras/icons/addon.png",
                 "path": "addons://sources/video/",
                 "target": "videos"
             },
             {
-                "label": "Music Add-ons",
+                "label": "音乐插件",
                 "path": "addons://sources/audio/",
                 "icon": "special://skin/extras/icons/addon.png",
                 "target": "music"
             },
             {
-                "label": "Image Add-ons",
+                "label": "图片插件",
                 "path": "addons://sources/image/",
                 "icon": "special://skin/extras/icons/addon.png",
                 "target": "pictures"
@@ -84,21 +84,21 @@
         ],
         "widgets": [
             {
-                "label": "Video Add-ons",
+                "label": "视频插件",
                 "icon": "special://skin/extras/icons/addon.png",
                 "path": "addons://sources/video/",
                 "target": "videos",
                 "widget_style": "Square"
             },
             {
-                "label": "Music Add-ons",
+                "label": "音乐插件",
                 "path": "addons://sources/audio/",
                 "icon": "special://skin/extras/icons/addon.png",
                 "target": "music",
                 "widget_style": "Square"
             },
             {
-                "label": "Image Add-ons",
+                "label": "图片插件",
                 "path": "addons://sources/image/",
                 "icon": "special://skin/extras/icons/addon.png",
                 "target": "pictures",
@@ -107,7 +107,7 @@
         ]
     },
     {
-        "label": "Titles",
+        "label": "标题",
         "path": "library://video/movies/titles.xml/",
         "icon": "special://skin/extras/icons/film.png",
         "target": "videos",
@@ -120,7 +120,7 @@
         "use_as_widget": "True"
     },
     {
-        "label": "Genres",
+        "label": "类型",
         "path": "library://video/movies/genres.xml/",
         "icon": "special://skin/extras/icons/genre.png",
         "target": "videos",
@@ -133,7 +133,7 @@
         "use_as_widget": "True"
     },
     {
-        "label": "Years",
+        "label": "年份",
         "path": "library://video/movies/years.xml/",
         "icon": "special://skin/extras/icons/year.png",
         "target": "videos",
@@ -146,7 +146,7 @@
         "use_as_widget": "True"
     },
     {
-        "label": "Studios",
+        "label": "制片商",
         "path": "library://video/movies/studios.xml/",
         "icon": "special://skin/extras/icons/director.png",
         "target": "videos",
@@ -159,7 +159,7 @@
         "use_as_widget": "True"
     },
     {
-        "label": "Titles",
+        "label": "标题",
         "path": "library://video/tvshows/titles.xml/",
         "icon": "special://skin/extras/icons/tv.png",
         "target": "videos",
@@ -172,7 +172,7 @@
         "use_as_widget": "True"
     },
     {
-        "label": "Genres",
+        "label": "类型",
         "path": "library://video/tvshows/genres.xml/",
         "icon": "special://skin/extras/icons/genre.png",
         "target": "videos",
@@ -185,7 +185,7 @@
         "use_as_widget": "True"
     },
     {
-        "label": "Years",
+        "label": "年份",
         "path": "library://video/tvshows/years.xml/",
         "icon": "special://skin/extras/icons/year.png",
         "target": "videos",
@@ -198,7 +198,7 @@
         "use_as_widget": "True"
     },
     {
-        "label": "Studios",
+        "label": "制片商",
         "path": "library://video/tvshows/studios.xml/",
         "icon": "special://skin/extras/icons/director.png",
         "target": "videos",
@@ -211,7 +211,7 @@
         "use_as_widget": "True"
     },
     {
-        "label": "Artists",
+        "label": "艺术家",
         "path": "library://music/artists.xml/",
         "icon": "special://skin/extras/icons/artist.png",
         "target": "music",
@@ -225,7 +225,7 @@
         "widget_style": "Square"
     },
     {
-        "label": "Genres",
+        "label": "类型",
         "path": "library://music/genres.xml/",
         "icon": "special://skin/extras/icons/audiogenre.png",
         "target": "music",
@@ -239,7 +239,7 @@
         "widget_style": "Square"
     },
     {
-        "label": "Years",
+        "label": "年份",
         "path": "library://music/years.xml/",
         "icon": "special://skin/extras/icons/years.png",
         "target": "music",
@@ -253,7 +253,7 @@
         "widget_style": "Square"
     },
     {
-        "label": "Playlists",
+        "label": "播放列表",
         "path": "library://music/playlists.xml/",
         "icon": "special://skin/extras/icons/playlist.png",
         "target": "music",
@@ -267,7 +267,7 @@
         "widget_style": "Square"
     },
     {
-        "label": "TV Channels",
+        "label": "电视频道",
         "path": "ActivateWindow(TVChannels)",
         "icon": "special://skin/extras/icons/livetv.png",
         "target": "",
@@ -280,7 +280,7 @@
         "submenulist_target": "tvchannels"
     },
     {
-        "label": "TV Guide",
+        "label": "电视指南",
         "path": "ActivateWindow(TVGuide)",
         "icon": "special://skin/extras/icons/livetv.png",
         "target": "",
