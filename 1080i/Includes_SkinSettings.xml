@@ -851,7 +851,7 @@
             <param name="id">018</param>
             <param name="control">radiobutton</param>
             <param name="slevel">2</param>
-            <label>$LOCALIZE[31394]</label>
+            <label>$LOCALIZE[31159]</label>
             <visible>Skin.HasSetting(Background.DisableVideo)</visible>
             <selected>!Skin.HasSetting(Background.DisablePIP)</selected>
             <onclick>Skin.ToggleSetting(Background.DisablePIP)</onclick>
@@ -1458,7 +1458,7 @@
             <font>font_mini_plot</font>
             <textcolor>main_fg_50</textcolor>                           
             <height>auto</height>
-            <autoscroll>false</autoscroll>                            
+            <autoscroll>false</autoscroll>
             <label>$VAR[Label_Changelog]</label>
             <visible>!Integer.IsLess(Skin.String(Skin.SettingsLevel),2)</visible>
             <visible>Container(10000).HasFocus($PARAM[baseid])</visible>

@@ -1,3 +1,12 @@
+[B]v2.0.7[/B]
+- Redesigned all dialogs. The Context Menu is now completely modular, with the option to toggle the side buttons and artwork independently. You can also use the [B]Flip[/B] option to mirror the layout.
+Go to [B]Skin Settings → Interface → Context Menu[/B] to learn more.
+- Added a [B]Flix[/B] layout option for the Wall Info Dialog.
+Go to [B]Skin Settings → Layout → Customise style > Video Info[/B] to learn more.
+- Improved Info Panel performance.
+- Other bug fixes and enhancements.
+
+
 [B]v2.0.6[/B]
 - 新增模块化影片信息弹窗按钮。影片信息弹窗现在提供4个可自定义按钮，可选功能如下：[B]预告片[/B] / [B]Trakt同步[/B] / [B]维基百科[/B] / [B]剧情简介[/B] / [B]素材封面[/B] / [B]用户评分[/B] / [B]多版本影片[/B] / [B]附加花絮[/B] / [B]刷新元数据[/B]。
 前往 [B]皮肤设置 → 布局 → 自定义样式 > 影片信息页[/B] 查看详细设置。
