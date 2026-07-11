@@ -1,339 +1,339 @@
 [B]v2.0.7[/B]
-- Redesigned all dialogs. The Context Menu is now completely modular, with the option to toggle the side buttons and artwork independently. You can also use the [B]Flip[/B] option to mirror the layout.
-Go to [B]Skin Settings → Interface → Context Menu[/B] to learn more.
-- Added a [B]Flix[/B] layout option for the Wall Info Dialog.
-Go to [B]Skin Settings → Layout → Customise style > Video Info[/B] to learn more.
-- Improved Info Panel performance.
-- Other bug fixes and enhancements.
+- 重新设计全部弹窗对话框。右键菜单现已完全模块化，可独立开关侧边按钮与封面图展示；同时新增【翻转】选项，一键镜像整体布局。
+前往 **皮肤设置 → 界面 → 右键菜单** 查看详细配置。
+- 为墙式信息弹窗新增网飞风格布局方案。
+前往 **皮肤设置 → 布局 → 自定义样式 → 影片信息** 查看详细配置。
+- 优化信息面板运行性能。
+- 其他问题修复与细节功能优化。
 
 
 [B]v2.0.6[/B]
-- Added modular Info Dialog buttons. You will now have 4 customizable buttons in the Info Dialog with the following options: [B]Trailer[/B] / [B]Trakt[/B] / [B]Wikipedia[/B] / [B]Plot[/B] / [B]Artwork[/B] / [B]User rating[/B] / [B]Versions[/B] / [B]Extras[/B] / [B]Refresh[/B].
-Go to [B]Skin Settings → Layout → Customise style > Video Info[/B] to learn more.
-- Added a [B]File Details[/B] dialog to display detailed file information. Click on the [B]Options[/B] button in the Info Dialog to access this.
-- Added an option to filter local content in the Info Dialog widgets. Go to [B]Skin Settings → Layout → Customise style > Video Info → Use online widgets[/B] to toggle this (online enabled by default).
-[B]Note:[/B] All lists are retrieved from TMDb and hence require an internet connection. Filtering is done after fetching the online content and cross-referencing with your local database.
-- Added an option to display additional information in the plot line. Go to [B]Skin Settings → Details → Plot line[/B] to toggle the various options. You can currently choose between [B]Tagline[/B] / [B]Director[/B] / [B]Disabled[/B].
-- Other bug fixes and enhancements.
+- 新增模块化影片信息弹窗按钮。影片信息弹窗现在提供 4 个可自定义按钮，可选功能如下：[B]预告片[/B] / [B]Trakt 同步[/B] / [B]维基百科[/B] / [B]剧情简介[/B] / [B]素材封面[/B] / [B]用户评分[/B] / [B]多版本影片[/B] / [B]附加花絮[/B] / [B]刷新元数据[/B]。
+前往 [B]皮肤设置 → 布局 → 自定义样式 > 影片信息页[/B] 查看详细设置。
+- 新增【文件详情】弹窗，用于展示完整文件参数。点击影片信息弹窗内的 [B]选项[/B] 按钮即可打开。
+- 新增影片信息弹窗小组件本地内容过滤开关。前往 [B]皮肤设置 → 布局 → 自定义样式 > 影片信息页 → 使用在线小组件[/B] 切换（默认开启在线数据）。
+[B]备注：[/B] 所有列表数据均拉取自 TMDb，需联网使用。过滤逻辑为先获取线上内容，再与本地媒体库交叉匹配。
+- 新增在简介行展示附加信息的选项。前往 [B]皮肤设置 → 详情界面 → 简介栏[/B] 切换各项功能。当前可选：[B]宣传标语[/B] / [B]导演信息[/B] / [B]关闭[/B]。
+- 其他漏洞修复与功能优化。
 
 
 [B]v2.0.5[/B]
-- Added an option to display the [B]Ends At Time[/B] in the info line. You can now choose to either have it alongside the ratings or the info line. Go to [B]Skin Settings → Details → Additional tags[/B] to enable the setting.
-[B]Note:[/B] With this setting enabled, you also have the option to disable [B]Plot + Ratings[/B] in the Video OSD ([B]Skin Settings → Layout → Customise style > Video OSD[/B]).
-- More bug fixes and enhancements
+- 新增在信息栏显示[B]结束时间[/B]的选项。可选择将其放在评分旁或独立信息栏。前往 [B]皮肤设置 → 详情界面 → 附加标签[/B] 开启该功能。
+[B]备注：[/B] 开启此设置后，你可在影片OSD界面关闭[B]简介+评分[/B]（路径：[B]皮肤设置 → 布局 → 自定义样式 > 影片OSD[/B]）。
+- 更多漏洞修复与功能优化
 
 
 [B]v2.0.4[/B]
-- Redesigned the widget customisation screen for a more intuitive experience.
-- Added a new experimental [B]Hub Switcher[/B] mode. Go to [B]Skin Settings → Shortcuts → Customise shortcuts > Widgets → Use as home[/B] to learn more.
-- Added a [B]Text[/B] style option for Topbar mode. You can now choose between [B]Icon[/B] / [B]Text[/B] / [B]Both[/B].
-- Added an option to display weather in the right header (available only when [B]Hub header[/B] is disabled). Go to [B]Skin Settings → Interface → Clock[/B] to choose between [B]Time[/B] / [B]Time + Weather[/B] / [B]Time + Date[/B] / [B]Time + Weather + Date[/B].
-- More bug fixes and enhancements.
+- 重新设计小组件自定义界面，操作逻辑更直观。
+- 新增实验性功能 [B]主页分类快速切换[/B] 模式。前往 [B]皮肤设置 → 快捷方式 → 自定义快捷键 > 小组件 → 设为主页[/B] 查看详情。
+- 顶部导航栏新增[B]文字[/B]样式选项。现在可选择：[B]仅图标[/B] / [B]仅文字[/B] / [B]图标+文字[/B]。
+- 右上角标题栏支持显示天气（仅关闭[B]主页分类标题栏[/B]时生效）。前往 [B]皮肤设置 → 界面 → 时钟[/B] 选择：[B]仅时间[/B] / [B]时间+天气[/B] / [B]时间+日期[/B] / [B]时间+天气+日期[/B]。
+- 更多漏洞修复与功能优化。
 
 
 [B]v2.0.2 / v2.0.3[/B]
-- More bug fixes and enhancements.
+- 多项漏洞修复与功能优化。
 
 
 [B]v2.0.1[/B]
-- Added "Wall" style Info Dialog.
-- Other bug fixes and enhancements.
+- 新增“墙式布局”影片信息弹窗。
+- 其他漏洞修复与优化。
 
 
 [B]v2.0.0[/B]
-- Introducing Arctic Fuse Mod 2
+- 正式推出 Arctic Fuse Mod 2
 
 
 [B]v1.0.0 / v1.0.1[/B]
-- Merry Christmas/Happy Holidays and Happy New Year!!!
+- 圣诞快乐、节日快乐、新年快乐！！！
 
 
 [B]v0.9.106 / v0.9.107 / v0.9.108 / v0.9.109[/B]
-- Added option to toggle simple/detailed text labels.
-- Added option to change info dialog artwork (flix, blur and disabled).
-- Added scrollbars to all viewtypes.
-- Added custom shutdown timer.
-- Other bug fixes and enhancements.
+- 新增简易/详情文字标签切换开关。
+- 自定义影片信息弹窗封面素材样式（影视风、模糊、关闭）。
+- 全部浏览布局新增滚动条。
+- 自定义自动关机倒计时。
+- 其他漏洞修复与优化。
 
 
 [B]v0.9.105[/B]
-- Redesigned List BigLandscape (Info).
-- Added exit confirmation dialog.
-- Other bug fixes and enhancements.
+- 重新设计宽幅大图列表（信息模式）布局。
+- 新增退出确认弹窗。
+- 其他漏洞修复与优化。
 
 
 [B]v0.9.102 / v0.9.103 / v0.9.104[/B]
-- Bug fixes and enhancements.
+- 漏洞修复与功能优化。
 
 
 [B]v0.9.100 / v0.9.101[/B]
-- Added new "List BigLandscape" and "List Expanded" viewtypes.
-- Added option to toggle between "Standard" and "Info" styles for list viewtypes (only applies to "List BigPoster", "List BigLandscape" and "Combined List").
-- Added option for fullscreen wall views (only applies to "vertical" orientation).
-- Added option to use text labels in "Poster Wall" view.
-- Added option to start trailers in fullscreen. Also increased trailer dialog size.
-- Added option for "Poster" artwork overlay in the Video OSD.
-- Added option to completely disable left footer.
-- Other bug fixes and enhancements.
+- 新增两种浏览布局：“宽幅大图列表”与“扩展列表”。
+- 列表布局可切换“标准”/“信息”两种风格（仅适用于“竖版海报列表”、“宽幅大图列表”、“混合列表”）。
+- 竖屏布局支持全屏墙式视图。
+- 海报墙视图可开启文字标签。
+- 预告片默认全屏播放，同步放大预告片弹窗尺寸。
+- 影片 OSD 界面新增海报遮罩层选项。
+- 支持完全隐藏底部左侧信息栏。
+- 其他漏洞修复与优化。
 
-- A big thanks to @alex4pre for all the help with new feature ideas and reporting bugs!
+特别感谢 @alex4pre 提供大量新功能创意并反馈程序漏洞！
 
 
 [B]v0.9.99[/B]
-- OSD efficiency improvements.
-- Added quick wall view with alphabet scroll in the library. Go to Layout > Customise Style: Content > Action(Down)
-- IMDb Trailers now show season specific trailers. Big thanks to  @Gujal00 & @henryjfry !
-- Other bug fixes and enhancements.
+- 优化OSD播放界面渲染效率。
+- 媒体库新增快速墙式视图，附带字母快速滚动。设置路径：布局 > 自定义样式：媒体内容 > 下键动作
+- IMDb 预告片现已区分对应剧集季专属预告。由衷感谢 @Gujal00 & @henryjfry ！
+- 其他漏洞修复与优化。
 
 
 [B]v0.9.98[/B]
-- Added option to edit background for custom submenus.
-- Other bug fixes and enhancements.
+- 支持自定义子菜单背景图。
+- 其他漏洞修复与优化。
 
 
 [B]v0.9.97[/B]
-- Added pop up submenu.
-- Other bug fixes and enhancements.
+- 新增弹出式子菜单。
+- 其他漏洞修复与优化。
 
 
 [B]v0.9.11 / v0.9.96[/B]
-- Added video versions dialog.
-- Replaced flatseasons with season selector in Info Dialog.
-- Fixed Info Dialog play button bug - Special thanks to RvdS-cmd for helping with the debug logs!
-- Some missing control bug fixes.
-- Other bug fixes and enhancements.
+- 新增影片多版本弹窗。
+- 将影片信息弹窗平铺季选集替换为季节选择器。
+- 修复影片信息弹窗播放按钮漏洞——特别感谢 RvdS-cmd 协助调试日志！
+- 修复多处控件缺失漏洞。
+- 其他漏洞修复与优化。
 
 
 [B]v0.9.10[/B]
-- Added toggle to disable showing watch history when plot is unavailable.
-- Fix info dialog crew lists when item is an episode or season.
-- Other bug fixes and enhancements.
+- 无剧情简介时，可关闭观看历史展示。
+- 修复单集/单季条目下影片信息弹窗演职人员列表显示异常。
+- 其他漏洞修复与优化。
 
 
 [B]v0.9.9 - v0.9.95[/B]
-- Added detailed crew lists in Info Dialog.
-- Other bug fixes and enhancements.
+- 影片信息弹窗新增完整演职人员明细列表。
+- 其他漏洞修复与优化。
 
 
 [B]v0.9.7 - v0.9.85[/B]
-- Font refactoring (changed default font to Inter for better glyph support).
-- Added extra trailers panel in the trailer dialog.
-- Redesigned buttons.
-- Other bug fixes and enhancements.
+- 字体重构（默认字体更换为 Inter，提升特殊字符兼容性）。
+- 预告片弹窗新增额外预告面板。
+- 全局按钮重新设计。
+- 其他漏洞修复与优化。
 
 
 [B]v0.9.5 - v0.9.6[/B]
-- Improved OSD Info Dialog.
-- Added more combined viewtypes.
-- Removed Filter MediaWall.
-- Spotlight design standardization.
-- Other bug fixes and enhancements.
+- 升级 OSD 影片信息弹窗。
+- 新增多款混合浏览布局。
+- 移除媒体墙筛选功能。
+- 统一焦点封面栏视觉设计规范。
+- 其他漏洞修复与优化。
 
 
 [B]v0.9.4[/B]
-- Added Signpost and Text (S) style widgets.
-- Added season art in background fanart (only works with TMDb Helper content or library/plugins that provides season.fanart).
-- Updated thanks to add translators (also borrowed some translation from AF2 files).
-- Other bug fixes and enhancements.
+- 新增路标样式、精简文字(S)样式小组件。
+- 背景大图支持季封面素材（仅适配 TMDb 助手或可提供季背景图的媒体库/插件）。
+- 更新致谢名单，新增翻译贡献者（同时复用部分 AF2 皮肤翻译文本）。
+- 其他漏洞修复与优化。
 
 
 [B]v0.9.3[/B]
-- Added option to switch between landscape and poster info widgets (and more InfoDialog redesign).
-- Added option to cycle extra fanart.
-- Added Dutch translation.
-- Other bug fixes and enhancements.
+- 横向/海报两种信息小组件一键切换（同步重做影片信息弹窗界面）。
+- 支持循环切换多张背景大图。
+- 新增荷兰语翻译。
+- 其他漏洞修复与优化。
 
 
 [B]v0.9.0 - v0.9.2[/B]
-- Switch to "Classic" Window Property method for better TMDb Helper compatibility/stability.
-- More TMDb Helper compatibility updates.
-- Other bug fixes and enhancements.
+- 切换为“经典窗口变量”调用方式，提升 TMDb 助手兼容性与稳定性。
+- 持续更新 TMDb 助手兼容适配内容。
+- 其他漏洞修复与优化。
 
 
 [B]v0.8.6[/B]
-- Added Basic Widgets option.
-- Spotlight can now be disabled per category in the home window.
-- Other bug fixes and enhancements.
+- 新增极简小组件模式开关。
+- 主页每个分类可独立关闭焦点封面栏。
+- 其他漏洞修复与优化。
 
 
 [B]v0.8.4 - v0.8.5[/B]
-- Some TMDbH compatibility fixes. 		
-- Other bug fixes and enhancements.
+- 修复多处TMDb助手兼容问题。 		
+- 其他漏洞修复与优化。
 
 
 [B]v0.8.0 - v0.8.3[/B]
-- Add 'Info' style wall views.
-- Add option to disable hub headers to allow more lines for plot.
-- Add artwork overlay option for Trakt Watchlist and Favorites for TMDbH items.
-- Some TMDbH compatibility fixes. 		
-- Other bug fixes and enhancements.		
+- 新增“信息风格”墙式浏览布局。
+- 可关闭主页分类标题栏，留出更多区域展示剧情简介。
+- TMDb 助手条目：Trakt 观看列表、收藏夹支持封面遮罩层。
+- 修复多处 TMDb 助手兼容问题。 		
+- 其他漏洞修复与优化。		
 
 
 [B]v0.7.88[/B]
-- Add prevent reload widget option
-- More bug fixes.
-- Cleanup code.
+- 新增禁止小组件重载开关
+- 多处漏洞修复。
+- 底层代码清理精简。
 
 
 [B]v0.7.87[/B]
-- More TMDbH compatibility fixes.
-- Simplify expanded menu option.
-- Cleanup code.
-- Other bug fixes and enhancements.
+- 优化 TMDb 助手兼容适配。
+- 简化扩展菜单设置项。
+- 代码清理精简。
+- 其他漏洞修复与优化。
 
 
 [B]v0.7.86[/B]
-- TMDbH compatibility fixes.
-- Fix expanded menu option.
-- Separate button for renaming hubs to avoid confusion.
-- Some topbar navigation improvements.		
-- Other bug fixes and enhancements.
+- 修复 TMDb 助手兼容故障。
+- 修复扩展菜单异常问题。
+- 新增独立主页分类重命名按钮，避免操作混淆。
+- 优化顶部导航栏交互逻辑。		
+- 其他漏洞修复与优化。
 
 
 [B]v0.7.85[/B]
-- More hub and spotlight bug fixes.
-- Other bug fixes and enhancements.
+- 修复多处主页分类、焦点封面栏相关漏洞。
+- 其他漏洞修复与优化。
 
 
 [B]v0.7.84[/B]
-- Widget and Spotlight setups visibility bug fixes.
-- Other bug fixes and enhancements.
+- 修复小组件、焦点封面栏显示隐藏逻辑漏洞。
+- 其他漏洞修复与优化。
 
 
 [B]v0.7.83[/B]
-- Added 6 more custom hubs.
-- Hubs can now be renamed and used as the home window.
-- Other bug fixes and enhancements.
+- 新增6个自定义主页分类入口。
+- 主页分类支持自定义命名，可直接设为主页首页。
+- 其他漏洞修复与优化。
 
 
 [B]v0.7.82[/B]
-- Added List Landscape back to viewtypes.
-- Other small bug fixes and enhancements.
+- 浏览布局恢复宽幅横向列表。
+- 小幅漏洞修复与细节优化。
 
 
 [B]v0.7.81[/B]
-- Fix some Wall and ComboList visibility condition bugs.
-- Add a toggle for Simple vs Adaptive context menu.
-- Replaced List Landscape with List Details viewtype.
-- Other small bug fixes and enhancements.
+- 修复墙式视图、混合列表显示判断逻辑漏洞。
+- 新增简易/自适应右键菜单切换开关。
+- 将旧版横向列表替换为详情列表布局。
+- 小幅漏洞修复与细节优化。
 
 
 [B]v0.7.80[/B]
-- Redesigned Search/Discover hub inspired by AF2.
-- Added wall views.
-- Replaced 'Text' with 'Icons + Text' style Topbar.
-- Fix some more visibility issues with inverted text.
-- Several other bug fixes and enhancements.
+- 参考AF2设计重构搜索/发现主页分类。
+- 新增多款墙式浏览布局。
+- 顶部导航栏样式由“纯文字”改为“图标+文字”。
+- 修复反色文字模式下多处显示异常。
+- 多项漏洞修复与功能优化。
 
 
 [B]v0.7.71[/B]
-- Add all existing viewtypes inside add-on/library view.
-- Generate first widget id dynamically to fallback to next when unavailable.
-- Fix some poor visibility when inverted text is enabled.
-- Cleanup some settings.
-- Other small bug fixes and enhancements.
+- 插件/媒体库浏览页内置全部可用布局样式。
+- 动态生成首个小组件 ID，加载失效时自动切换下一组小组件。
+- 修复开启反色文字后可视性差的问题。
+- 精简冗余设置项。
+- 小幅漏洞修复与细节优化。
 
 
 [B]v0.7.70[/B]
-- Add screenshots to preview viewtypes.
-- Add matching style loading placeholders.
-- Other small bug fixes and enhancements.
+- 布局预览窗口添加预览截图。
+- 加载占位图统一匹配对应布局风格。
+- 小幅漏洞修复与细节优化。
 
 
 [B]v0.7.63[/B]
-- First donation on Ko-Fi! Big thank you to Blurayx!
-- Cleanup skin settings.
-- Autoscroll textboxes in combined list view.
-- Other small bug fixes and enhancements.
+- 收到首笔 Ko-Fi 捐赠！由衷感谢 Blurayx！
+- 精简皮肤设置菜单。
+- 混合列表布局文本框自动滚动。
+- 小幅漏洞修复与细节优化。
 
 
 [B]v0.7.62[/B]
-- Added Combined List View (with 'Basic' and 'Detailed' options).
-- New content filter in Search hub.
-- Keep history of items when going back to original info dialog using TMDb Helper replacement.
-- Other small bug fixes and enhancements.
+- 新增混合列表布局（提供“极简”与“详情”两种模式）。
+- 搜索主页新增媒体内容筛选器。
+- 使用 TMDb 助手跳转信息弹窗时，保留上一条浏览记录。
+- 小幅漏洞修复与细节优化。
 
 
 [B]v0.7.61[/B]
-- Added IMDb as an alternative trailer source (will need to install the [B]IMDb Trailers[/B] add-on from the official Kodi repo).
-- Fixed PVR widget targets. 		
-- Other small bug fixes and enhancements.
+- 新增 IMDb 作为备用预告片源（需在 Kodi 官方插件库安装 [B]IMDb 预告片[/B] 插件）。
+- 修复 PVR 直播小组件绑定目标漏洞。 		
+- 小幅漏洞修复与细节优化。
 
 
 [B]v0.7.60[/B]
-- Option for audio and subtitle flags in left footer.
-- Cleanup some settings.		
-- Other small bug fixes and enhancements.
+- 底部左侧栏可显示音轨、字幕标识。
+- 精简冗余设置项。		
+- 小幅漏洞修复与细节优化。
 
 
 [B]v0.7.55[/B]
-- Add changelog history.
-- Additional audio codec labels for Kodi v22.
-- Other small bug fixes and enhancements.
+- 内置更新日志查看页面。
+- 适配 Kodi v22，新增多种音频编码标签。
+- 小幅漏洞修复与细节优化。
 
 
 [B]v0.7.54[/B]
-- Separate episode overlays for "in-progress" and "unwatched".	
-- Cleanup some settings.		
-- Other small bug fixes and enhancements.
+- 未看完、未观看剧集使用独立遮罩标识区分。	
+- 精简冗余设置项。		
+- 小幅漏洞修复与细节优化。
 
 
 [B]v0.7.53[/B]
-- Ability to individually toggle each infoline tag.			
-- Other small bug fixes and enhancements.
+- 信息栏内每个标签均可单独开关显示。			
+- 小幅漏洞修复与细节优化。
 
 
 [B]v0.7.52[/B]
-- Add custom user delay for auto full screen trailers.
-- Option to start auto trailers on mute (will automatically unmute when fullscreen).		
-- New fonts with better support for more languages.	
-- Other small bug fixes and enhancements.
+- 自定义自动全屏预告片延迟时长。
+- 自动预告片默认静音，切换全屏后自动解除静音。		
+- 全新字体包，兼容更多语种文字。	
+- 小幅漏洞修复与细节优化。
 
 
 [B]v0.7.51[/B]
-- Option to toggle additional infoline tags.	
-- Other small bug fixes and enhancements.
+- 新增信息栏附加标签总开关。	
+- 小幅漏洞修复与细节优化。
 
 
 [B]v0.7.50[/B]
-- More auto trailer bug tweaks/fixes.
-- Option to switch to fullscreen trailer when system is idle (20 seconds).	
-- New 'Text' style option for Topbar.
-- Toggle to display episode numbers in infoline	(will hide it from the title in plot and vice versa).
-- New 'PVR' tag with plot details (title,season/episode) for TV Show items.
-- Add option for RSS feed in footer.	
-- Other small bug fixes and enhancements.
+- 优化并修复多条自动预告片相关漏洞。
+- 系统闲置 20 秒自动切换全屏预告片开关。	
+- 顶部导航栏新增“纯文字”样式选项。
+- 剧集号显示切换开关（信息栏显示则简介标题隐藏，二者互斥）。
+- 剧集条目新增 “PVR” 标签，附带剧情信息（标题、季/集数）。
+- 底部栏支持添加 RSS 资讯订阅。	
+- 小幅漏洞修复与细节优化。
 
 
 [B]v0.7.46[/B]
-- Trailer bug fix.		
-- Other small bug fixes and enhancements.
+- 修复预告片相关漏洞。		
+- 小幅漏洞修复与细节优化。
 
 
 [B]v0.7.45[/B]
-- Updated auto trailers now work with random widgets.
-- Replaced 'Outfit' with 'Figtree' font.		
-- Other small bug fixes and enhancements.
+- 自动预告片现已兼容随机小组件。
+- 字体由 Outfit 替换为 Figtree。		
+- 小幅漏洞修复与细节优化。
 
 
 [B]v0.7.44[/B]
-- Fixed background video window bug.
-- Added 4K and HD Movies smartplaylists.		
-- Other small bug fixes and enhancements.
+- 修复背景视频窗口漏洞。
+- 新增 4K 电影、高清电影智能播放列表。		
+- 小幅漏洞修复与细节优化。
 
 
 [B]v0.7.43[/B]
-- Fix 'List' viewtypes.
-- Fix linespacing and height for 'Nunito'.
-- Change header color to better differentiate between title text.
-- Change 'Adative' dialog color.		
-- Add option to display full date in status line.
-- 'Slide' Spotlight plays full screen trailer.
-- Other small bug fixes and enhancements.
+- 修复各类列表浏览布局异常。
+- 调整 Nunito 字体行间距与行高。
+- 修改标题栏配色，区分主次标题文字。
+- 调整“自适应”弹窗配色。		
+- 状态栏可展示完整年月日。
+- “滑动焦点封面栏”自动播放全屏预告片。
+- 小幅漏洞修复与细节优化。
 
 
 [B]v0.7.42[/B]
-- Info panel now has 3 lines of plot
-- New exanded option with artwork for 'Open path in dialog'
-- HDR pop up logos (Experimental)
-- Fixed Context Menu not pulling titles and images (poster and fanart)
+- 影片信息面板剧情简介扩充至三行显示
+- “弹窗打开文件路径”功能新增带素材封面的扩展选项
+- HDR 弹出标识（实验性功能）
+- 修复右键菜单无法读取海报、背景大图标题与素材的问题
