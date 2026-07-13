@@ -1,3 +1,8 @@
+[B]v2.0.8[/B]
+- Added a quick shortcut to toggle the visibility of Search Widgets.
+- Other bug fixes and enhancements.
+
+
 [B]v2.0.7[/B]
 - 重新设计全部弹窗对话框。右键菜单现已完全模块化，可独立开关侧边按钮与封面图展示；同时新增【翻转】选项，一键镜像整体布局。
 前往 **皮肤设置 → 界面 → 右键菜单** 查看详细配置。
