@@ -1032,7 +1032,6 @@
         <value condition="String.IsEqual(Window.Property(DetailsView),Cast) + String.IsEqual(Container(5503).ListItem.Property(DialogInfo.Details),Details) + !Control.HasFocus(5503)">$LOCALIZE[33029]</value>
         <value condition="String.IsEqual(Window.Property(DetailsView),Reviews)">$LOCALIZE[31334]</value>
         <value condition="String.IsEqual(Window.Property(DetailsView),Trailer)">$LOCALIZE[10025]</value>
-        <value condition="String.IsEqual(Window.Property(DetailsView),Critics)">$LOCALIZE[31030]</value>
         <value condition="String.IsEqual(Window.Property(DetailsView),Timeline)">$LOCALIZE[19032]</value>
         <value condition="String.IsEqual(Window.Property(DetailsView),Artwork)">$LOCALIZE[31161]</value>
         <value condition="String.IsEqual(Window.Property(DetailsView),Albums)">$LOCALIZE[132]</value>
@@ -2124,11 +2123,6 @@
         <value condition="Window.IsVisible(eventlog)">[CAPITALIZE]$LOCALIZE[10050][/CAPITALIZE]</value>
         <value condition="Window.IsVisible(musicplaylisteditor)">[CAPITALIZE]$LOCALIZE[10503][/CAPITALIZE]</value>
         <value condition="Window.IsVisible(settings)">$LOCALIZE[5]</value>
-    </variable>
-
-    <variable name="Label_Critics">
-        <value condition="!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.rottentomatoes_consensus)) | !String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Awards))">[B][COLOR=main_fg_90]$LOCALIZE[31024][/COLOR][/B][CR]$INFO[Window(Home).Property(TMDbHelper.ListItem.rottentomatoes_consensus),, ]$INFO[Window(Home).Property(TMDbHelper.ListItem.rottentomatoes_reviewsfresh),$LOCALIZE[31054] , ]$INFO[Window(Home).Property(TMDbHelper.ListItem.rottentomatoes_reviewstotal),$LOCALIZE[31055] , $LOCALIZE[31056] ]$INFO[Window(Home).Property(TMDbHelper.ListItem.Awards_Won),[CR][CR],]</value>
-        <value condition="!String.IsEmpty(ListItem.AddonNews)">[B][COLOR=main_fg_90]$LOCALIZE[24036][/COLOR][/B][CR]$INFO[ListItem.AddonNews]</value>
     </variable>
 
     <variable name="Label_Overlay_FileDetails">

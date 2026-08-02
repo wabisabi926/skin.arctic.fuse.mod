@@ -1627,7 +1627,9 @@
             <include content="DialogInfo_List_Movement">
                 <param name="id">5004</param>
             </include>
-            <onclick>ActivateWindow(1113)</onclick>
+            <onclick>SetProperty(header,$INFO[ListItem.Label]$INFO[ListItem.Label2, - ,],1128)</onclick>
+            <onclick>SetProperty(textbox,$ESCINFO[Container(5004).ListItem.Plot]$ESCINFO[Container(5004).ListItem.Property(plotlabel)],1128)</onclick>
+            <onclick>ActivateWindow(1128)</onclick>
             <onfocus condition="Skin.String(InfoDialog.Layout,Blur) + String.IsEmpty(Window(Home).Property(Background.DialogInfo.HideArtwork))">SetProperty(Background.DialogInfo.HideArtwork,True,Home)</onfocus>
 
 
@@ -1646,29 +1648,6 @@
             <animation effect="fade" start="100" end="0" condition="Container(5004).IsUpdating">Conditional</animation>
             <onfocus>SetProperty(ReviewsActive,1)</onfocus>
         </include>
-
-        <control type="group">
-            <left>200</left>
-            <right>880</right>
-            <visible>String.IsEqual(Window.Property(DetailsView),Critics)</visible>
-
-            <include content="Object_InfoCircle">
-                <param name="icon">special://skin/extras/icons/trophy.png</param>
-                <param name="role">$LOCALIZE[31064]</param>
-                <param name="name">$INFO[Window(Home).Property(TMDbHelper.ListItem.Awards)]</param>
-                <left>0</left>
-                <top>-15</top>
-            </include>
-            <control type="textbox">
-                <font>font_mini_plot</font>
-                <textcolor>main_fg_70</textcolor>
-                <label>$VAR[Label_Critics]</label>
-                <aligny>top</aligny>
-                <top>70</top>
-                <autoscroll>false</autoscroll>
-                <bottom>-5</bottom>
-            </control>
-        </control>
 
         <include content="Widget_Busy">
             <param name="label">$INFO[Window.Property(DetailsView)]</param>

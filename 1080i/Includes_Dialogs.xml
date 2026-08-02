@@ -109,9 +109,10 @@
 
     <include name="Dialog_Backing">
         <param name="dialog_size">Dimension_DialogFullMenu</param>
+        <param name="include_animation">Animation_BounceIn_Dialog</param>
         <definition>
             <include>$PARAM[dialog_size]</include>
-            <include>Animation_BounceIn_Dialog</include>
+            <include>$PARAM[include_animation]</include>
             <include content="Dialog_Background_Panel">
                 <param name="dialog_size">$PARAM[dialog_size]</param>
             </include>
@@ -1031,6 +1032,7 @@
                         <font>font_mini_plot</font>
                         <align>center</align>
                         <aligny>top</aligny>
+                        <textcolor>dialog_fg_70</textcolor>
                         <label>$INFO[Container($PARAM[id]).ListItem.Property(textbox)]</label>
                     </control>
                 </control>
@@ -1337,6 +1339,7 @@
                 <left>60</left>
                 <font>font_midi</font>
                 <label>$PARAM[label]</label>
+                <textcolor>dialog_fg_90</textcolor>
             </control>
         </control>
     </include>

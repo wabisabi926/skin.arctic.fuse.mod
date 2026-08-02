@@ -139,7 +139,7 @@
         <param name="listitem">ListItem</param>
         <definition>
             <control type="group">
-                <visible>[String.IsEmpty($PARAM[container]$PARAM[listitem].Art(clearlogo)) + String.IsEmpty($PARAM[container]$PARAM[listitem].Art(tvshow.clearlogo)) + String.IsEmpty($PARAM[container]$PARAM[listitem].Art(artist.clearlogo))]</visible>
+                <visible>![!String.IsEmpty($PARAM[container]$PARAM[listitem].Art(clearlogo)) | !String.IsEmpty($PARAM[container]$PARAM[listitem].Art(tvshow.clearlogo)) | [!String.IsEmpty($PARAM[container]$PARAM[listitem].Art(artist.clearlogo)) + [String.IsEqual($PARAM[container]$PARAM[listitem].DBType,song) | String.IsEqual($PARAM[container]$PARAM[listitem].DBType,album) | String.IsEqual($PARAM[container]$PARAM[listitem].DBType,artist) | String.IsEqual($PARAM[container]$PARAM[listitem].DBType,musicvideo)]]]</visible>
                 <include content="Info_Title_Label" condition="Skin.HasSetting(Furniture.EnableLeftHeader) + $PARAM[titlelargelogo]">
                     <param name="container">$PARAM[container]</param>
                     <param name="listitem">$PARAM[listitem]</param>
@@ -196,6 +196,7 @@
                     <visible>String.IsEmpty($PARAM[container]$PARAM[listitem].Art(clearlogo))</visible>
                     <visible>String.IsEmpty($PARAM[container]$PARAM[listitem].Art(tvshow.clearlogo))</visible>
                     <visible>!String.IsEmpty($PARAM[container]$PARAM[listitem].Art(artist.clearlogo))</visible>
+                    <visible>[String.IsEqual($PARAM[container]$PARAM[listitem].DBType,song) | String.IsEqual($PARAM[container]$PARAM[listitem].DBType,album) | String.IsEqual($PARAM[container]$PARAM[listitem].DBType,artist) | String.IsEqual($PARAM[container]$PARAM[listitem].DBType,musicvideo)]</visible>
                 </control>
             </include>
             <include content="Object_Control" condition="!Skin.HasSetting(Furniture.EnableLeftHeader) | [Skin.HasSetting(Furniture.EnableLeftHeader) + !$PARAM[titlelargelogo]]">
@@ -235,6 +236,7 @@
                     <visible>String.IsEmpty($PARAM[container]$PARAM[listitem].Art(clearlogo))</visible>
                     <visible>String.IsEmpty($PARAM[container]$PARAM[listitem].Art(tvshow.clearlogo))</visible>
                     <visible>!String.IsEmpty($PARAM[container]$PARAM[listitem].Art(artist.clearlogo))</visible>
+                    <visible>[String.IsEqual($PARAM[container]$PARAM[listitem].DBType,song) | String.IsEqual($PARAM[container]$PARAM[listitem].DBType,album) | String.IsEqual($PARAM[container]$PARAM[listitem].DBType,artist) | String.IsEqual($PARAM[container]$PARAM[listitem].DBType,musicvideo)]</visible>
                 </control>
             </include>
         </definition>

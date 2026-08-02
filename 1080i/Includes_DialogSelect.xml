@@ -316,6 +316,7 @@
                                 <font>font_mini_plot</font>
                                 <align>center</align>
                                 <aligny>bottom</aligny>
+                                <textcolor>dialog_fg_70</textcolor>
                                 <label>$INFO[Container(3).ListItem.Property(textbox)]</label>
                             </include>
                         </control>
