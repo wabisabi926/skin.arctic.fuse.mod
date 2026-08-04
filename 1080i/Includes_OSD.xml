@@ -171,7 +171,7 @@
     <include name="OSD_CastInfo_HintText">
         <param name="visible">true</param>
         <param name="colordiffuse">main_fg_30</param>
-        <param name="centerbottom">25</param>
+        <param name="centerbottom">30</param>
         <param name="left">view_side</param>
         <param name="fade_in">true</param>
         <param name="fade_out">true</param>

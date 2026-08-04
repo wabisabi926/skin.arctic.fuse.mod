@@ -156,7 +156,7 @@
 
     <include name="View_Combined_List_Horz">
         <control type="group">
-            <visible allowhiddenfocus="true">![$EXP[Exp_View_ScrollFilter_HasFocus] | $EXP[Exp_View_AlphabetFilter_HasFocus] | Window.IsVisible(1171) | $EXP[Exp_MediaFilter_IsActive] | [Container.Scrolling + $EXP[Exp_FurnitureFooter_Left_IsVisible]]]</visible>
+            <visible allowhiddenfocus="true">![Window.IsVisible(1171) | $EXP[Exp_MediaFilter_IsActive] | $EXP[Exp_FurnitureFooter_Left_IsVisible] | $EXP[Exp_View_AlphabetFilter_HasFocus]]</visible>
             <control type="group">
                 <visible>$PARAM[visible]</visible>
                 <animation effect="fade" start="100" end="0" delay="400" reversible="false" time="200" condition="$EXP[Exp_InfoDialogs]">Conditional</animation>

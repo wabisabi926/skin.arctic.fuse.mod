@@ -1186,6 +1186,7 @@
 
                     <include content="Info_Viewline_Label" condition="$PARAM[custom_label_condition]">
                         <label>$PARAM[custom_label]</label>
+                        <param name="textcolor_base">$PARAM[textcolor_base]</param>
                     </include>
 
                     <orientation>horizontal</orientation>

@@ -713,12 +713,6 @@
         </control>
     </include>
 
-    <include name="View_Row_Items_NextItem">
-        <include content="View_Furniture_Bottom_Group">
-            <param name="include">View_Furniture_Bottom_Group_NextLabel</param>
-        </include>
-    </include>
-
     <include name="View_Row_Items_KeyboardSlide">
         <animation effect="slide" end="0,-320" delay="600" reversible="false" time="400" tween="cubic" easing="out" condition="$EXP[Exp_FilterItems_Keyboard]">Conditional</animation>
     </include>
@@ -774,9 +768,10 @@
     </include>
     
     <include name="View_Furniture_Bottom_ViewLine">
-        <param name="fade_condition">true</param>
+        <param name="fade_condition">Skin.HasSetting(Furniture.ViewLineColor)</param>
         <param name="left">-120</param>
         <param name="right">0</param>
+        <param name="textcolor_base">main_fg_30</param>
         <definition>
             <control type="group">
                 <visible>$PARAM[visible]</visible>
@@ -793,63 +788,6 @@
         </definition>
     </include>
 
-    <include name="View_Furniture_Bottom_Group_NextLabel">
-        <control type="group">
-            <include>Dimension_Bottombar</include>
-            <visible>$EXP[Exp_FurnitureFooter_Left_IsVisible]</visible>
-            <visible>[[!Skin.String(Furniture.BottomLeft.Enable,Library) + !Skin.String(Furniture.BottomLeft.Enable,Always)] | [[Skin.String(Furniture.BottomLeft.Enable,Library) | Skin.String(Furniture.BottomLeft.Enable,Always)] + $EXP[Exp_View_ScrollFilterHorz_HasFocus]]]</visible>
-            <animation effect="fade" start="100" end="30" condition="true">Conditional</animation>
-            <control type="group">
-                <height>35</height>
-                <include content="Info_Viewline"> 
-                    <param name="library_condition">false</param>
-                    <param name="label">$VAR[Label_NextMedia]</param>
-                    <param name="custom_icon_condition">Skin.HasSetting(Furniture.EnableViewLineIcons)</param>
-                    <param name="custom_icon">$VAR[Image_NextMedia]</param>
-                    <top>0</top>
-                    <left>0</left>
-                </include>
-            </control>
-        </control>
-    </include>
-
-    <include name="View_Furniture_Bottom_Group_Content">
-        <control type="group">
-            <visible>$EXP[Exp_FurnitureFooter_Left_IsVisible]</visible>
-            <visible>!$EXP[Exp_View_ScrollFilterHorz_HasFocus]</visible>
-            <visible>!$EXP[Exp_View_SortModeButtons_HasFocus]</visible>
-            <visible>!$EXP[Exp_View_AlphabetFilter_HasFocus]</visible>
-            <include content="Animation_Fade_In">
-                <param name="type">Conditional</param>
-                <param name="condition">!$EXP[Exp_InfoDialogs]</param>
-            </include>
-            <include content="Animation_Fade_Out">
-                <param name="type">Conditional</param>
-                <param name="condition">$EXP[Exp_InfoDialogs]</param>
-            </include>
-            <include condition="Skin.String(Furniture.BottomLeft.Enable,Library) | Skin.String(Furniture.BottomLeft.Enable,Always)">Furniture_Bottom_Left</include>
-        </control>
-    </include>
-
-    <include name="View_Furniture_Bottom_Group">
-        <control type="group">
-            <visible>!$EXP[Exp_InfoDialogs] | !$EXP[Exp_Footer_BottomLeft_IsVisible]</visible>
-            <visible>![$EXP[Exp_View_WallVert] + Skin.HasSetting(View.SwitchVerticalWallSize) + [$EXP[Exp_View_WallMode] | $EXP[Exp_View_FurnitureWall]]]</visible>
-            <include condition="!$EXP[Exp_Footer_BottomLeft_IsVisible]">Widget_List_Visibility</include>
-            <include condition="$EXP[Exp_Footer_BottomLeft_IsVisible]">Animation_Transition_InfoPanel_Hide</include>
-            <include condition="$EXP[Exp_HomeMenu_IsTopBar]">Animation_Widgets_Topbar_SlideUp_Fade</include>
-            <control type="group">
-                <visible>!Window.IsVisible(1171)</visible>
-                <control type="group">
-                    <visible>![[Container.Scrolling + $EXP[Exp_FurnitureFooter_Left_IsVisible] + !$EXP[Exp_View_ScrollFilter_HasFocus]] | !String.IsEmpty(Window.Property(MediaFilterBase))]</visible>
-                    <animation effect="fade" start="100" end="0" delay="400" time="1" reversible="true">Hidden</animation>
-                    <animation effect="fade" start="0" end="100" delay="400" time="1" reversible="false">Visible</animation>
-                    <include>$PARAM[include]</include>
-                </control>
-            </control>
-        </control>
-    </include>
-
     <include name="View_Furniture_Bottom_PageCount_Footer_Default">
         <control type="group">
             <left>80</left>
@@ -860,7 +798,7 @@
                 <label fallback="571">$VAR[Label_Furniture_Bottom_Content]</label>
             </include>
             <include content="Object_InfoCircle_Text_Sub">
-                <label>$INFO[Container.NumItems,[COLOR=main_fg_90][B],[/B][/COLOR] $LOCALIZE[31022]. ]$LOCALIZE[31135] $INFO[Container.CurrentPage,[COLOR=main_fg_90][B],[/B][/COLOR] $LOCALIZE[20163] ]$INFO[Container.NumPages,[COLOR=main_fg_90][B],[/B][/COLOR]]</label>
+                <label>$INFO[Container.NumItems,[COLOR=main_fg_90][B],[/B][/COLOR] $LOCALIZE[31022] [COLOR=main_fg_90][B]•[/B][/COLOR] ]$LOCALIZE[31135] $INFO[Container.CurrentPage,[COLOR=main_fg_90][B],[/B][/COLOR] $LOCALIZE[20163] ]$INFO[Container.NumPages,[COLOR=main_fg_90][B],[/B][/COLOR]]</label>
                 <width>auto</width>
             </include>
         </control>
@@ -898,18 +836,47 @@
 
     <include name="View_Furniture_Bottom_PageCount_Basic">
         <control type="group">
-            <animation effect="fade" start="100" end="30" condition="true">Conditional</animation>
             <control type="group">
-                <height>35</height>
+                <animation effect="fade" start="100" end="30" condition="Skin.HasSetting(Furniture.ViewLineColor)">Conditional</animation>
                 <include content="Info_Viewline">
                     <param name="library_condition">false</param>
-                    <param name="label">$LOCALIZE[31135]$INFO[Container.CurrentPage, , $LOCALIZE[20163] ]$INFO[Container.NumPages]</param>
+                    <param name="label">$VAR[Label_NextBump]</param>
                     <param name="custom_icon_condition">Skin.HasSetting(Furniture.EnableViewLineIcons)</param>
                     <param name="custom_icon">special://skin/extras/icons/kodi.png</param>
-                    <param name="custom_label_condition">Skin.HasSetting(Furniture.EnableViewLineIcons)</param>
-                    <param name="custom_label">$INFO[ListItem.SortLetter]</param>
-                    <top>0</top>
-                    <left>0</left>
+                    <param name="textcolor_base">main_fg_30</param>
+                    <param name="top">0</param>
+                    <param name="left">-8</param>
+                </include>
+            </control>
+            <control type="group">
+                <left>0</left>
+                <animation effect="fade" start="100" end="30" condition="Skin.HasSetting(Furniture.ViewLineColor)">Conditional</animation>
+                <control type="label">
+                    <label>$LOCALIZE[31135]$INFO[Container.CurrentPage, , $LOCALIZE[20163] ]$INFO[Container.NumPages]</label>
+                    <include content="Object_TextColor" condition="Skin.HasSetting(Furniture.ViewLineColor)">
+                        <param name="textcolor">$VAR[ColorHighlight]</param>
+                    </include>
+                    <textcolor>main_fg_30</textcolor>
+                    <aligny>center</aligny>
+                    <align>left</align>
+                    <font>font_hint_bold</font>
+                    <width>auto</width>
+                    <top>30</top>
+                    <height>40</height>
+                    <visible>$EXP[Exp_View_ScrollFilter_HasFocus] | $EXP[Exp_View_AlphabetFilter_HasFocus]</visible>
+                </control>
+                <include content="Object_Control" condition="Skin.HasSetting(Furniture.ViewLineColor)">
+                    <param name="control">label</param>
+                    <label>$LOCALIZE[31135]$INFO[Container.CurrentPage, , $LOCALIZE[20163] ]$INFO[Container.NumPages]</label>
+                    <textcolor>$VAR[ColorGradient]</textcolor>
+                    <aligny>center</aligny>
+                    <align>left</align>
+                    <font>font_hint_bold</font>
+                    <width>auto</width>
+                    <top>30</top>
+                    <height>40</height>
+                    <visible>$EXP[Exp_View_ScrollFilter_HasFocus] | $EXP[Exp_View_AlphabetFilter_HasFocus]</visible>
+                    <animation effect="fade" end="33" condition="true">Conditional</animation>
                 </include>
             </control>
         </control>
@@ -917,14 +884,9 @@
 
     <include name="View_Furniture_Bottom">
         <control type="group">
-            <include content="View_Furniture_Bottom_Group">
-                <param name="include">View_Furniture_Bottom_Group_Content</param>
-            </include>
-            
-            <include content="OSD_CastInfo_HintText" condition="!Skin.HasSetting(Furniture.EnableViewLineIcons)">
+            <include content="OSD_CastInfo_HintText">
                 <param name="label">$VAR[Label_OnDown_Footer_HintText]</param>
                 <param name="visible">$EXP[Exp_View_ScrollFilterHorz_HasFocus] + !Window.IsVisible(1171) + !Integer.IsEqual(Container.NumPages,1)</param>
-                <param name="centerbottom">50</param>
                 <param name="colordiffuse">main_fg_30</param>
                 <param name="fade_in">false</param>
                 <param name="fade_out">false</param>
@@ -932,10 +894,9 @@
                 <param name="include_arrow_visible">true</param>
                 <param name="label_id">3200</param>
             </include>
-            <include content="OSD_CastInfo_HintText" condition="!Skin.HasSetting(Furniture.EnableViewLineIcons)">
+            <include content="OSD_CastInfo_HintText">
                 <param name="label">$VAR[Label_OnRight_Footer_HintText]</param>
                 <param name="visible">$EXP[Exp_View_ScrollFilterVert_HasFocus] + !Window.IsVisible(1171) + !Integer.IsEqual(Container.NumPages,1)</param>
-                <param name="centerbottom">50</param>
                 <param name="colordiffuse">main_fg_30</param>
                 <param name="fade_in">false</param>
                 <param name="fade_out">false</param>
@@ -948,10 +909,8 @@
                 <visible>!Window.IsVisible(1171)</visible>
                 <include condition="$EXP[Exp_HomeMenu_IsTopBar]">Animation_Widgets_Topbar_SlideUp_Fade</include>
                 <control type="group">
-                    <visible>[[Container.Scrolling + $EXP[Exp_FurnitureFooter_Left_IsVisible] + !$EXP[Exp_View_ScrollFilter_HasFocus]] | !String.IsEmpty(Window.Property(MediaFilterBase))]</visible>
+                    <visible>[$EXP[Exp_MediaFilter_IsActive] | $EXP[Exp_FurnitureFooter_Left_IsVisible] | $EXP[Exp_View_AlphabetFilter_HasFocus]]</visible>
                     <visible>![$EXP[Exp_View_WallVert] + Skin.HasSetting(View.SwitchVerticalWallSize) + [$EXP[Exp_View_WallMode] | $EXP[Exp_View_FurnitureWall]]]</visible>
-                    <animation effect="fade" start="0" end="100" delay="400" time="1" reversible="true">Visible</animation>
-                    <animation effect="fade" start="100" end="0" delay="400" time="1" reversible="false">Hidden</animation>
                     <height>40</height>
                     <centerbottom>100</centerbottom>
                     <left>view_side</left>
@@ -970,27 +929,6 @@
                     <include>View_Scrollbar_Strip</include>
                     <include>View_Alphabet_Filter</include>
                     <include>View_Sorting_Buttons</include>
-                    <control type="group">
-                        <top>10</top>
-                        <height>40</height>
-                        <include content="Object_Right" condition="Skin.String(Home.SideMenuCollapse,Never)">
-                            <param name="right">90</param>
-                        </include>
-                        <left>10</left>
-                        <right>10</right>
-                        <visible>$EXP[Exp_View_ScrollFilter_HasFocus]</visible>
-                        <visible>![$EXP[Exp_View_WallVert] + Skin.HasSetting(View.SwitchVerticalWallSize) + [$EXP[Exp_View_WallMode] | $EXP[Exp_View_FurnitureWall]]]</visible>
-                        <animation effect="fade" start="100" end="30" condition="true">Conditional</animation>
-                        <control type="label">
-                            <label>[COLOR=main_fg_90]$VAR[Label_RightFooter_ScrollbarOnFocus][/COLOR]</label>
-                            <align>right</align>
-                            <aligny>center</aligny>
-                            <textcolor>main_fg_90</textcolor>
-                            <font>font_main_bold</font>
-                            <width>auto</width>
-                            <height>35</height>
-                        </control>
-                    </control>
                 </control>
             </control>            
         </control>
@@ -1452,7 +1390,6 @@
                     <include>View_Row_Items_KeyboardSlide</include>
                     <include>View_Row_Items_ViewLine</include>
                 </control>
-                <include>View_Row_Items_NextItem</include>
             </control>
             <include>View_Furniture_Bottom</include>
             <include>View_Row_Header</include>
@@ -1463,7 +1400,6 @@
             <include>Animation_Transition_InfoPanel_Hide</include>
             <include condition="$EXP[Exp_HomeMenu_IsTopBar]">Animation_Widgets_Topbar_SlideUp_Fade</include>
             <control type="group">
-                <visible>!$EXP[Exp_View_ScrollFilter_HasFocus]</visible>
                 <visible>![$EXP[Exp_View_WallVert] + Skin.HasSetting(View.SwitchVerticalWallSize) + [$EXP[Exp_View_WallMode] | $EXP[Exp_View_FurnitureWall]]]</visible>
                 <include>Furniture_Bottom_Right</include>
             </control>
