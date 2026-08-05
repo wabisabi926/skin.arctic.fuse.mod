@@ -17,16 +17,19 @@
 
     <include name="Home_Menu_List_Vert">
         <width>view_menu_main</width>
-        <height>500</height>
+        <height>800</height>
         <centertop>50%</centertop>
     </include>
 
     <include name="Home_Menu_List_Reposition">
-        <animation effect="slide" start="0" end="0,10" condition="Integer.IsGreaterOrEqual(Container($PARAM[id]).NumItems,5)">Conditional</animation>
-        <animation effect="slide" start="0" end="0,60" condition="Integer.IsEqual(Container($PARAM[id]).NumItems,4)">Conditional</animation>
-        <animation effect="slide" start="0" end="0,110" condition="Integer.IsEqual(Container($PARAM[id]).NumItems,3)">Conditional</animation>
-        <animation effect="slide" start="0" end="0,160" condition="Integer.IsEqual(Container($PARAM[id]).NumItems,2)">Conditional</animation>
-        <animation effect="slide" start="0" end="0,210" condition="Integer.IsEqual(Container($PARAM[id]).NumItems,1)">Conditional</animation>
+        <animation effect="slide" start="0" end="0,10" condition="Integer.IsGreaterOrEqual(Container($PARAM[id]).NumItems,8)">Conditional</animation>
+        <animation effect="slide" start="0" end="0,60" condition="Integer.IsEqual(Container($PARAM[id]).NumItems,7)">Conditional</animation>
+        <animation effect="slide" start="0" end="0,110" condition="Integer.IsEqual(Container($PARAM[id]).NumItems,6)">Conditional</animation>
+        <animation effect="slide" start="0" end="0,160" condition="Integer.IsEqual(Container($PARAM[id]).NumItems,5)">Conditional</animation>
+        <animation effect="slide" start="0" end="0,210" condition="Integer.IsEqual(Container($PARAM[id]).NumItems,4)">Conditional</animation>
+        <animation effect="slide" start="0" end="0,260" condition="Integer.IsEqual(Container($PARAM[id]).NumItems,3)">Conditional</animation>
+        <animation effect="slide" start="0" end="0,310" condition="Integer.IsEqual(Container($PARAM[id]).NumItems,2)">Conditional</animation>
+        <animation effect="slide" start="0" end="0,360" condition="Integer.IsEqual(Container($PARAM[id]).NumItems,1)">Conditional</animation>
     </include>
 
     <include name="Home_Menu_List_Horz">
@@ -150,8 +153,8 @@
             <onfocus condition="$EXP[Exp_HomeHub_IsVisible] + !Integer.IsEqual(Window(1198).Property(TMDbHelper.WidgetContainer.UpdateLock),ListItem.CurrentItem)">SetProperty(SideMenu.CurrentName,$INFO[ListItem.Label],Home)</onfocus>
 
             <!-- Hub Switcher -->
-            <onfocus condition="Skin.HasSetting(Navigation.Global.Hub.Switcher) + !String.IsEmpty(Skin.String(Hub.Home.ReplaceWindow)) + !String.IsEmpty(ListItem.Property(hub_switcher_path)) + Integer.IsLess(Container(303).NumItems,6)">$INFO[ListItem.Property(hub_switcher_path)]</onfocus>
-            <onfocus condition="Skin.HasSetting(Navigation.Global.Hub.Switcher) + !String.IsEmpty(Skin.String(Hub.Home.ReplaceWindow)) + !String.IsEmpty(ListItem.Property(hub_switcher_path_extended)) + !Integer.IsLess(Container(303).NumItems,6)">$INFO[ListItem.Property(hub_switcher_path_extended)]</onfocus>
+            <onfocus condition="Skin.HasSetting(Navigation.Global.Hub.Switcher) + !String.IsEmpty(Skin.String(Hub.Home.ReplaceWindow)) + !String.IsEmpty(ListItem.Property(hub_switcher_path)) + Integer.IsLess(Container(303).NumItems,9)">$INFO[ListItem.Property(hub_switcher_path)]</onfocus>
+            <onfocus condition="Skin.HasSetting(Navigation.Global.Hub.Switcher) + !String.IsEmpty(Skin.String(Hub.Home.ReplaceWindow)) + !String.IsEmpty(ListItem.Property(hub_switcher_path_extended)) + !Integer.IsLess(Container(303).NumItems,9)">$INFO[ListItem.Property(hub_switcher_path_extended)]</onfocus>
         </control>
     </include>
 
@@ -187,8 +190,8 @@
             <onfocus condition="$EXP[Exp_HomeHub_IsVisible] + !Integer.IsEqual(Window(1198).Property(TMDbHelper.WidgetContainer.UpdateLock),ListItem.CurrentItem)">SetProperty(SideMenu.CurrentName,$INFO[ListItem.Label],Home)</onfocus>
 
             <!-- Hub Switcher -->
-            <onfocus condition="Skin.HasSetting(Navigation.Global.Hub.Switcher) + !String.IsEmpty(Skin.String(Hub.Home.ReplaceWindow)) + !String.IsEmpty(ListItem.Property(hub_switcher_path)) + Integer.IsLess(Container(303).NumItems,6)">$INFO[ListItem.Property(hub_switcher_path)]</onfocus>
-            <onfocus condition="Skin.HasSetting(Navigation.Global.Hub.Switcher) + !String.IsEmpty(Skin.String(Hub.Home.ReplaceWindow)) + !String.IsEmpty(ListItem.Property(hub_switcher_path_extended)) + !Integer.IsLess(Container(303).NumItems,6)">$INFO[ListItem.Property(hub_switcher_path_extended)]</onfocus>
+            <onfocus condition="Skin.HasSetting(Navigation.Global.Hub.Switcher) + !String.IsEmpty(Skin.String(Hub.Home.ReplaceWindow)) + !String.IsEmpty(ListItem.Property(hub_switcher_path)) + Integer.IsLess(Container(303).NumItems,9)">$INFO[ListItem.Property(hub_switcher_path)]</onfocus>
+            <onfocus condition="Skin.HasSetting(Navigation.Global.Hub.Switcher) + !String.IsEmpty(Skin.String(Hub.Home.ReplaceWindow)) + !String.IsEmpty(ListItem.Property(hub_switcher_path_extended)) + !Integer.IsLess(Container(303).NumItems,9)">$INFO[ListItem.Property(hub_switcher_path_extended)]</onfocus>
         </control>
     </include>
 

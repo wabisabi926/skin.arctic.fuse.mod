@@ -471,12 +471,39 @@
         <value condition="Container(303).Position(3)">13</value>
         <value condition="Container(303).Position(4)">15</value>
     </variable>
+    <variable name="Action_HomeMenu_OnLeft_Offset_Items_06">
+        <value condition="Container(303).Position(0)">6</value>
+        <value condition="Container(303).Position(1)">8</value>
+        <value condition="Container(303).Position(2)">10</value>
+        <value condition="Container(303).Position(3)">12</value>
+        <value condition="Container(303).Position(4)">14</value>
+        <value condition="Container(303).Position(5)">16</value>
+    </variable>
+    <variable name="Action_HomeMenu_OnLeft_Offset_Items_07">
+        <value condition="Container(303).Position(0)">5</value>
+        <value condition="Container(303).Position(1)">7</value>
+        <value condition="Container(303).Position(2)">9</value>
+        <value condition="Container(303).Position(3)">11</value>
+        <value condition="Container(303).Position(4)">13</value>
+        <value condition="Container(303).Position(5)">15</value>
+        <value condition="Container(303).Position(6)">17</value>
+    </variable>
+    <variable name="Action_HomeMenu_OnLeft_Offset_Items_08">
+        <value condition="Container(303).Position(0)">4</value>
+        <value condition="Container(303).Position(1)">6</value>
+        <value condition="Container(303).Position(2)">8</value>
+        <value condition="Container(303).Position(3)">10</value>
+        <value condition="Container(303).Position(4)">12</value>
+        <value condition="Container(303).Position(5)">14</value>
+        <value condition="Container(303).Position(6)">16</value>
+        <value condition="Container(303).Position(7)">18</value>
+    </variable>
 
 
     <variable name="Action_HomeMenu_OnLeft_Offset">
 
         <value condition="Skin.String(Home.SideMenuCollapse,Topbar)">0</value>
-        
+
         <value condition="Control.HasFocus(309)">0</value>
 
         <value condition="Control.HasFocus(308)">22</value>
@@ -485,7 +512,10 @@
         <value condition="Integer.IsEqual(Container(303).NumItems,2)">$VAR[Action_HomeMenu_OnLeft_Offset_Items_02]</value>
         <value condition="Integer.IsEqual(Container(303).NumItems,3)">$VAR[Action_HomeMenu_OnLeft_Offset_Items_03]</value>
         <value condition="Integer.IsEqual(Container(303).NumItems,4)">$VAR[Action_HomeMenu_OnLeft_Offset_Items_04]</value>
-        <value>$VAR[Action_HomeMenu_OnLeft_Offset_Items_05]</value>
+        <value condition="Integer.IsEqual(Container(303).NumItems,5)">$VAR[Action_HomeMenu_OnLeft_Offset_Items_05]</value>
+        <value condition="Integer.IsEqual(Container(303).NumItems,6)">$VAR[Action_HomeMenu_OnLeft_Offset_Items_06]</value>
+        <value condition="Integer.IsEqual(Container(303).NumItems,7)">$VAR[Action_HomeMenu_OnLeft_Offset_Items_07]</value>
+        <value>$VAR[Action_HomeMenu_OnLeft_Offset_Items_08]</value>
     </variable>
 
     <include name="Action_HomeMenu_OnDownUp">

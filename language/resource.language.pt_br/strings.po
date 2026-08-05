@@ -2100,7 +2100,7 @@ msgstr "Abrir caminho na caixa de diálogo"
 
 #: /1080i/Includes_Shortcuts_Window.xml
 msgctxt "#31444"
-msgid "This feature works best with 5 or fewer side menu items. Using additional items may cause unexpected behaviour."
+msgid "This feature works best with 8 or fewer side menu items. Using additional items may cause unexpected behaviour."
 msgstr ""
 
 #: /1080i/SkinSettings.xml
