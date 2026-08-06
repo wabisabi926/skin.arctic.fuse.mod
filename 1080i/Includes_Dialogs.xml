@@ -960,7 +960,7 @@
                         <content>
                             <item>
                                 <label>$LOCALIZE[10036] [LOWERCASE]$LOCALIZE[31158][/LOWERCASE]</label>
-                                <visible>String.IsEqual(Container(50).ListItem.Icon,special://skin/extras/screenshots/widgets/Basic.jpg) | String.IsEqual(Container(50).ListItem.Icon,special://skin/extras/screenshots/widgets/Classic.jpg) | String.IsEqual(Container(50).ListItem.Icon,special://skin/extras/screenshots/widgets/Combined.jpg)</visible>
+                                <visible>String.IsEqual(Container(50).ListItem.Icon,special://skin/extras/screenshots/widgets/Basic.jpg) | String.IsEqual(Container(50).ListItem.Icon,special://skin/extras/screenshots/widgets/Classic.jpg) | String.IsEqual(Container(50).ListItem.Icon,special://skin/extras/screenshots/layout/Combined.jpg)</visible>
                                 <description>Advanced layout options / Categories</description>
                             </item>
                             <item>
@@ -974,11 +974,11 @@
                             </item>
                             <item>
                                 <label>$LOCALIZE[19145] [LOWERCASE]$LOCALIZE[31103][/LOWERCASE]</label>
-                                <visible>String.IsEqual(Container(50).ListItem.Icon,special://skin/extras/screenshots/widgets/Basic.jpg) | String.IsEqual(Container(50).ListItem.Icon,special://skin/extras/screenshots/widgets/Classic.jpg) | String.IsEqual(Container(50).ListItem.Icon,special://skin/extras/screenshots/widgets/Combined.jpg)</visible>
+                                <visible>String.IsEqual(Container(50).ListItem.Icon,special://skin/extras/screenshots/widgets/Basic.jpg) | String.IsEqual(Container(50).ListItem.Icon,special://skin/extras/screenshots/widgets/Classic.jpg) | String.IsEqual(Container(50).ListItem.Icon,special://skin/extras/screenshots/layout/Combined.jpg)</visible>
                             </item>
                             <item>
                                 <label>$LOCALIZE[147] [LOWERCASE]$LOCALIZE[21483][/LOWERCASE]</label>
-                                <visible>String.IsEqual(Container(50).ListItem.Icon,special://skin/extras/screenshots/widgets/Combined.jpg)</visible>
+                                <visible>String.IsEqual(Container(50).ListItem.Icon,special://skin/extras/screenshots/layout/Combined.jpg)</visible>
                             </item>
                             <item>
                                 <label>$LOCALIZE[31105]</label>
@@ -1006,17 +1006,17 @@
                         <content>
                             <item>
                                 <label>$LOCALIZE[106] [LOWERCASE]$LOCALIZE[31105][/LOWERCASE]</label>
-                                <visible>String.IsEqual(Container(50).ListItem.Icon,special://skin/extras/screenshots/widgets/Basic.jpg) | String.IsEqual(Container(50).ListItem.Icon,special://skin/extras/screenshots/widgets/Classic.jpg) | String.IsEqual(Container(50).ListItem.Icon,special://skin/extras/screenshots/widgets/Combined.jpg)</visible>
+                                <visible>String.IsEqual(Container(50).ListItem.Icon,special://skin/extras/screenshots/widgets/Basic.jpg) | String.IsEqual(Container(50).ListItem.Icon,special://skin/extras/screenshots/widgets/Classic.jpg) | String.IsEqual(Container(50).ListItem.Icon,special://skin/extras/screenshots/layout/Combined.jpg)</visible>
                                 <description>Advanced layout options / Categories</description>
                             </item>
                             <item>
                                 <label>$LOCALIZE[106] [LOWERCASE]$LOCALIZE[31432] $LOCALIZE[1034][/LOWERCASE]</label>
-                                <visible>String.IsEqual(Container(50).ListItem.Icon,special://skin/extras/screenshots/widgets/Basic.jpg) | String.IsEqual(Container(50).ListItem.Icon,special://skin/extras/screenshots/widgets/Classic.jpg) | String.IsEqual(Container(50).ListItem.Icon,special://skin/extras/screenshots/widgets/Combined.jpg)</visible>
+                                <visible>String.IsEqual(Container(50).ListItem.Icon,special://skin/extras/screenshots/widgets/Basic.jpg) | String.IsEqual(Container(50).ListItem.Icon,special://skin/extras/screenshots/widgets/Classic.jpg) | String.IsEqual(Container(50).ListItem.Icon,special://skin/extras/screenshots/layout/Combined.jpg)</visible>
                                 <description>Advanced layout options / Categories</description>
                             </item>
                             <item>
                                 <label>$LOCALIZE[19022] [LOWERCASE]$LOCALIZE[31416][/LOWERCASE]</label>
-                                <visible>String.IsEqual(Container(50).ListItem.Icon,special://skin/extras/screenshots/widgets/Compound.jpg) | String.IsEqual(Container(50).ListItem.Icon,special://skin/extras/screenshots/widgets/Combined.jpg)</visible>
+                                <visible>String.IsEqual(Container(50).ListItem.Icon,special://skin/extras/screenshots/widgets/Compound.jpg) | String.IsEqual(Container(50).ListItem.Icon,special://skin/extras/screenshots/layout/Combined.jpg)</visible>
                                 <description>Advanced layout options / Categories</description>
                             </item>
                             <item>

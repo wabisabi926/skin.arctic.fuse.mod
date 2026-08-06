@@ -1083,6 +1083,11 @@
                 <param name="label">$INFO[$PARAM[container]ListItem.Rating]</param>
                 <param name="visible">!String.IsEmpty($PARAM[container]ListItem.Rating) + [String.IsEqual($PARAM[container]ListItem.DBType,album) | String.IsEqual($PARAM[container]ListItem.DBType,song)]</param>
             </include>
+            <include content="Info_IconLine_Object" condition="![$PARAM[is_player]]">
+                <param name="icon">&#xf005;</param>
+                <param name="label">$INFO[$PARAM[container]ListItem.UserRating]</param>
+                <param name="visible">String.IsEmpty($PARAM[container]ListItem.Rating) + !String.IsEmpty($PARAM[container]ListItem.UserRating) + [String.IsEqual($PARAM[container]ListItem.DBType,album) | String.IsEqual($PARAM[container]ListItem.DBType,song)]</param>
+            </include>
 
         </definition>
     </include>

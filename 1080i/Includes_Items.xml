@@ -662,7 +662,7 @@
              <param name="control">radiobutton</param>
              <label>$LOCALIZE[31253]</label>
              <visible>Skin.HasSetting(Hub.Home.DisableSubmenu)</visible>
-             <visible>!Skin.HasSetting(Hub.Home.WidgetSelector)</visible>
+             <visible>String.IsEmpty(Skin.String(Hub.Home.WidgetMode))</visible>
              <visible>String.IsEmpty(Skin.String(Hub.Home.ReplaceWindow))</visible>
              <onclick>Skin.ToggleSetting(Hub.Home.DisableMoveBetweenGroups)</onclick>
              <selected>!Skin.HasSetting(Hub.Home.DisableMoveBetweenGroups)</selected>
@@ -721,26 +721,25 @@
             <param name="dialog">true</param>
             <label>$LOCALIZE[31167] [LOWERCASE]$LOCALIZE[21843][/LOWERCASE]</label>
             <label2>$VAR[Label_Setting_WallOrientation]</label2>
-            <onclick condition="String.IsEqual(Skin.AspectRatio,16:9)">Skin.ToggleSetting(View.SwitchWallOrientation)</onclick>
-            <onclick condition="!String.IsEqual(Skin.AspectRatio,16:9)">RunScript(script.skinvariables,run_dialog=yesno,heading=$LOCALIZE[31167] [LOWERCASE]$LOCALIZE[21843][/LOWERCASE],message=[B][COLOR=red][UPPERCASE]$LOCALIZE[14117][/UPPERCASE][/B][/COLOR][CR]$LOCALIZE[31548],yeslabel=$LOCALIZE[186],nolabel=$LOCALIZE[222])</onclick>
+            <onclick>Skin.ToggleSetting(View.SwitchWallOrientation)</onclick>
         </include>
         <include content="Settings_Button" description="Vertical Wall Size">
             <param name="id">8008</param>
             <param name="control">button</param>
             <param name="dialog">true</param>
-            <label> - $LOCALIZE[289]</label>
+            <label>$LOCALIZE[289]</label>
             <label2>$VAR[Label_Setting_VerticalWallSize]</label2>
-            <visible>String.IsEqual(Skin.AspectRatio,16:9) + Skin.HasSetting(View.SwitchWallOrientation)</visible>
+            <visible>$EXP[Exp_View_WallVert]</visible>
             <onclick>Skin.ToggleSetting(View.SwitchVerticalWallSize)</onclick>
         </include>
         <include content="Settings_Button" description="Poster wall text labels">
             <param name="id">8009</param>
-            <param name="control">radiobutton</param>
+            <param name="control">button</param>
             <param name="dialog">true</param>
-            <label> - $LOCALIZE[21480][LOWERCASE] $LOCALIZE[31329] $LOCALIZE[31425] $LOCALIZE[16041] $LOCALIZE[31591][/LOWERCASE]</label>
-            <visible>String.IsEqual(Skin.AspectRatio,16:9) + Skin.HasSetting(View.SwitchWallOrientation) + Skin.HasSetting(View.SwitchVerticalWallSize)</visible>
+            <label>$LOCALIZE[31591]</label>
+            <label2>$VAR[Label_Setting_PosterWallLayout]</label2>
+            <visible>$EXP[Exp_View_WallVert]</visible>
             <onclick>Skin.ToggleSetting(Enable.WallDetailedLabels)</onclick>
-            <selected>Skin.HasSetting(Enable.WallDetailedLabels)</selected>
         </include>
         <include content="Settings_Label">
             <param name="id">8010</param>
@@ -3532,6 +3531,7 @@
             <param name="control">radiobutton</param>
             <label>$LOCALIZE[31228]</label>
             <texturefocus border="40">special://skin/extras/backgrounds/menu/menu_h_aqua.png</texturefocus>
+            <focusedcolor>ffffffff</focusedcolor>
             <onclick>Skin.SetString(focuscolor.name,ff0091ea)</onclick>
             <onclick>Skin.SetString(gradientcolor.name,ff00bfa5)</onclick>
             <onclick>Skin.Reset(EnableMonochromeHighlight)</onclick>
@@ -3546,6 +3546,7 @@
             <param name="control">radiobutton</param>
             <label>$LOCALIZE[31240]</label>
             <texturefocus border="40">special://skin/extras/backgrounds/menu/menu_h_tropical.png</texturefocus>
+            <focusedcolor>ffffffff</focusedcolor>
             <onclick>Skin.SetString(focuscolor.name,fff4511e)</onclick>
             <onclick>Skin.SetString(gradientcolor.name,ffe91e63)</onclick>
             <onclick>Skin.Reset(EnableMonochromeHighlight)</onclick>
@@ -3560,6 +3561,7 @@
             <param name="control">radiobutton</param>
             <label>$LOCALIZE[31229]</label>
             <texturefocus border="40">special://skin/extras/backgrounds/menu/menu_h_miami.png</texturefocus>
+            <focusedcolor>ffffffff</focusedcolor>
             <onclick>Skin.Reset(focuscolor.name)</onclick>
             <onclick>Skin.Reset(gradientcolor.name)</onclick>
             <onclick>Skin.Reset(EnableMonochromeHighlight)</onclick>
@@ -3575,6 +3577,7 @@
             <param name="control">radiobutton</param>
             <label>$LOCALIZE[762]</label>
             <texturefocus border="40">special://skin/extras/backgrounds/menu/menu_h_blue.png</texturefocus>
+            <focusedcolor>ffffffff</focusedcolor>
             <onclick>Skin.SetString(focuscolor.name,ff0091ea)</onclick>
             <onclick>Skin.SetString(gradientcolor.name,ff0091ea)</onclick>
             <onclick>Skin.SetBool(EnableMonochromeHighlight)</onclick>
@@ -3590,6 +3593,7 @@
             <param name="control">radiobutton</param>
             <label>$LOCALIZE[31238]</label>
             <texturefocus border="40">special://skin/extras/backgrounds/menu/menu_h_coral.png</texturefocus>
+            <focusedcolor>ffffffff</focusedcolor>
             <onclick>Skin.SetString(focuscolor.name,ffe53564)</onclick>
             <onclick>Skin.SetString(gradientcolor.name,ffe53564)</onclick>
             <onclick>Skin.SetBool(EnableMonochromeHighlight)</onclick>
@@ -3605,6 +3609,7 @@
             <param name="control">radiobutton</param>
             <label>$LOCALIZE[13342]</label>
             <texturefocus border="40">special://skin/extras/backgrounds/menu/menu_h_orange.png</texturefocus>
+            <focusedcolor>ffffffff</focusedcolor>
             <onclick>Skin.SetString(focuscolor.name,ffe55e35)</onclick>
             <onclick>Skin.SetString(gradientcolor.name,ffe55e35)</onclick>
             <onclick>Skin.SetBool(EnableMonochromeHighlight)</onclick>
@@ -3620,6 +3625,7 @@
             <param name="control">radiobutton</param>
             <label>$LOCALIZE[31220]</label>
             <texturefocus border="40">special://skin/extras/backgrounds/menu/menu_h_purple.png</texturefocus>
+            <focusedcolor>ffffffff</focusedcolor>
             <onclick>Skin.SetString(focuscolor.name,ff5528a8)</onclick>
             <onclick>Skin.SetString(gradientcolor.name,ff5528a8)</onclick>
             <onclick>Skin.SetBool(EnableMonochromeHighlight)</onclick>
@@ -4455,7 +4461,7 @@
                 <icon>special://skin/extras/screenshots/widgets/Basic.jpg</icon>
                 <onclick>Skin.SetBool(Hub.$PARAM[window_id].DisableSubmenu)</onclick>
                 <onclick>Skin.SetBool(Hub.$PARAM[window_id].EnableBasicWidgets)</onclick>
-                <onclick>Skin.Reset(Hub.$PARAM[window_id].WidgetSelector)</onclick>
+                <onclick condition="Skin.String(Hub.$PARAM[window_id].WidgetMode,Combined)">Skin.Reset(Hub.$PARAM[window_id].WidgetMode)</onclick>
                 <onclick>SetProperty(HelpText,$LOCALIZE[31095][CR][CR]$LOCALIZE[31096],1115)</onclick>
                 <onclick>SetProperty(HelpImage,special://skin/extras/screenshots/widgets/Basic.jpg,1115)</onclick>
                 <onclick>Skin.SetString(Shortcuts.RebuildDateTime,$INFO[System.Date(yyyy-mm-dd)]_$INFO[System.Time(hh:mm:ss)])</onclick>
@@ -4464,25 +4470,64 @@
             </item>
             <item>
                 <label>$LOCALIZE[31143]</label>
-                <icon>special://skin/extras/screenshots/widgets/Classic.jpg</icon>
+                <icon>special://skin/extras/screenshots/layout/Standard.jpg</icon>
                 <onclick>Skin.SetBool(Hub.$PARAM[window_id].DisableSubmenu)</onclick>
                 <onclick>Skin.Reset(Hub.$PARAM[window_id].EnableBasicWidgets)</onclick>
                 <onclick>SetProperty(HelpText,$LOCALIZE[31095][CR][CR]$LOCALIZE[31097],1115)</onclick>
-                <onclick>SetProperty(HelpImage,special://skin/extras/screenshots/widgets/Classic.jpg,1115)</onclick>
+                <onclick>SetProperty(HelpImage,special://skin/extras/screenshots/layout/Standard.jpg,1115)</onclick>
                 <onclick>Skin.SetString(Shortcuts.RebuildDateTime,$INFO[System.Date(yyyy-mm-dd)]_$INFO[System.Time(hh:mm:ss)])</onclick>
                 <onclick>PreviousMenu</onclick>
                 <property name="textbox">$LOCALIZE[31097]</property>
             </item>
             <item>
                 <label>$LOCALIZE[31037]</label>
-                <icon>special://skin/extras/screenshots/widgets/Categories.jpg</icon>
+                <icon>special://skin/extras/screenshots/widgets/Compound.jpg</icon>
                 <onclick>Skin.Reset(Hub.$PARAM[window_id].DisableSubmenu)</onclick>
                 <onclick>Skin.Reset(Hub.$PARAM[window_id].EnableBasicWidgets)</onclick>
                 <onclick>SetProperty(HelpText,$LOCALIZE[31095][CR][CR]$LOCALIZE[31098],1115)</onclick>
-                <onclick>SetProperty(HelpImage,special://skin/extras/screenshots/widgets/Categories.jpg,1115)</onclick>
+                <onclick>SetProperty(HelpImage,special://skin/extras/screenshots/widgets/Compound.jpg,1115)</onclick>
                 <onclick>Skin.SetString(Shortcuts.RebuildDateTime,$INFO[System.Date(yyyy-mm-dd)]_$INFO[System.Time(hh:mm:ss)])</onclick>
                 <onclick>PreviousMenu</onclick>
                 <property name="textbox">$LOCALIZE[31098]</property>
+            </item>
+        </content>
+    </include>
+
+    <include name="_Items_Preview_WidgetMode">
+        <content>
+            <item>
+                <label>$LOCALIZE[602]</label>
+                <icon>special://skin/extras/screenshots/layout/Standard.jpg</icon>
+                <onclick>Skin.Reset(Hub.$PARAM[window_id].WidgetMode)</onclick>
+                <onclick>SetProperty(HelpHead,$LOCALIZE[31457],1115)</onclick>
+                <onclick>SetProperty(HelpText,$LOCALIZE[31459][CR][CR]$LOCALIZE[31463],1115)</onclick>
+                <onclick>SetProperty(HelpImage,special://skin/extras/screenshots/layout/Standard.jpg,1115)</onclick>
+                <onclick>Skin.SetString(Shortcuts.RebuildDateTime,$INFO[System.Date(yyyy-mm-dd)]_$INFO[System.Time(hh:mm:ss)])</onclick>
+                <onclick>PreviousMenu</onclick>
+                <property name="textbox">$LOCALIZE[31463]</property>
+            </item>
+            <item>
+                <label>$LOCALIZE[31083]</label>
+                <icon>special://skin/extras/screenshots/layout/Combined.jpg</icon>
+                <visible>!Skin.HasSetting(Hub.$PARAM[window_id].EnableBasicWidgets)</visible>
+                <onclick>Skin.SetString(Hub.$PARAM[window_id].WidgetMode,Combined)</onclick>
+                <onclick>SetProperty(HelpHead,$LOCALIZE[31457],1115)</onclick>
+                <onclick>SetProperty(HelpText,$LOCALIZE[31459][CR][CR]$LOCALIZE[31462],1115)</onclick>
+                <onclick>SetProperty(HelpImage,special://skin/extras/screenshots/layout/Combined.jpg,1115)</onclick>
+                <onclick>Skin.SetString(Shortcuts.RebuildDateTime,$INFO[System.Date(yyyy-mm-dd)]_$INFO[System.Time(hh:mm:ss)])</onclick>
+                <onclick>PreviousMenu</onclick>
+                <property name="textbox">$LOCALIZE[31462]</property>
+            </item>
+            <item>
+                <label>$LOCALIZE[31167]</label>
+                <icon>special://skin/extras/screenshots/layout/Wall.jpg</icon>
+                <onclick>Skin.SetString(Hub.$PARAM[window_id].WidgetMode,Wall)</onclick>
+                <onclick>SetProperty(HelpHead,$LOCALIZE[31457],1115)</onclick>
+                <onclick>SetProperty(HelpText,$LOCALIZE[31459][CR][CR]$LOCALIZE[31548],1115)</onclick>
+                <onclick>SetProperty(HelpImage,special://skin/extras/screenshots/layout/Wall.jpg,1115)</onclick>
+                <onclick>Skin.SetString(Shortcuts.RebuildDateTime,$INFO[System.Date(yyyy-mm-dd)]_$INFO[System.Time(hh:mm:ss)])</onclick>
+                <onclick>PreviousMenu</onclick>
+                <property name="textbox">$LOCALIZE[31548]</property>
             </item>
         </content>
     </include>
@@ -4503,6 +4548,25 @@
         <include content="_Items_Preview_LayoutMode" condition="String.IsEqual(Window(1121).Property(CustomDialogPreviewWindowID),Hub.1125)"><param name="window_id">1125</param></include>
         <include content="_Items_Preview_LayoutMode" condition="String.IsEqual(Window(1121).Property(CustomDialogPreviewWindowID),Hub.1126)"><param name="window_id">1126</param></include>
         <include content="_Items_Preview_LayoutMode" condition="String.IsEqual(Window(1121).Property(CustomDialogPreviewWindowID),Hub.1127)"><param name="window_id">1127</param></include>
+    </include>
+
+    <include name="Items_Preview_WidgetMode">
+        <include content="_Items_Preview_WidgetMode" condition="String.IsEqual(Window(1121).Property(CustomDialogPreviewWindowID),Hub.Home)"><param name="window_id">Home</param></include>
+        <include content="_Items_Preview_WidgetMode" condition="String.IsEqual(Window(1121).Property(CustomDialogPreviewWindowID),Hub.1101)"><param name="window_id">1101</param></include>
+        <include content="_Items_Preview_WidgetMode" condition="String.IsEqual(Window(1121).Property(CustomDialogPreviewWindowID),Hub.1102)"><param name="window_id">1102</param></include>
+        <include content="_Items_Preview_WidgetMode" condition="String.IsEqual(Window(1121).Property(CustomDialogPreviewWindowID),Hub.1103)"><param name="window_id">1103</param></include>
+        <include content="_Items_Preview_WidgetMode" condition="String.IsEqual(Window(1121).Property(CustomDialogPreviewWindowID),Hub.1104)"><param name="window_id">1104</param></include>
+        <include content="_Items_Preview_WidgetMode" condition="String.IsEqual(Window(1121).Property(CustomDialogPreviewWindowID),Hub.1106)"><param name="window_id">1106</param></include>
+        <include content="_Items_Preview_WidgetMode" condition="String.IsEqual(Window(1121).Property(CustomDialogPreviewWindowID),Hub.1107)"><param name="window_id">1107</param></include>
+        <include content="_Items_Preview_WidgetMode" condition="String.IsEqual(Window(1121).Property(CustomDialogPreviewWindowID),Hub.1108)"><param name="window_id">1108</param></include>
+        <include content="_Items_Preview_WidgetMode" condition="String.IsEqual(Window(1121).Property(CustomDialogPreviewWindowID),Hub.1109)"><param name="window_id">1109</param></include>
+        <include content="_Items_Preview_WidgetMode" condition="String.IsEqual(Window(1121).Property(CustomDialogPreviewWindowID),Hub.1110)"><param name="window_id">1110</param></include>
+        <include content="_Items_Preview_WidgetMode" condition="String.IsEqual(Window(1121).Property(CustomDialogPreviewWindowID),Hub.1112)"><param name="window_id">1112</param></include>
+        <include content="_Items_Preview_WidgetMode" condition="String.IsEqual(Window(1121).Property(CustomDialogPreviewWindowID),Hub.1114)"><param name="window_id">1114</param></include>
+        <include content="_Items_Preview_WidgetMode" condition="String.IsEqual(Window(1121).Property(CustomDialogPreviewWindowID),Hub.1125)"><param name="window_id">1125</param></include>
+        <include content="_Items_Preview_WidgetMode" condition="String.IsEqual(Window(1121).Property(CustomDialogPreviewWindowID),Hub.1126)"><param name="window_id">1126</param></include>
+        <include content="_Items_Preview_WidgetMode" condition="String.IsEqual(Window(1121).Property(CustomDialogPreviewWindowID),Hub.1127)"><param name="window_id">1127</param></include>
+        <include content="_Items_Preview_WidgetMode" condition="String.IsEqual(Window(1121).Property(CustomDialogPreviewWindowID),Hub.1132)"><param name="window_id">1132</param></include>
     </include>
 
     <include name="Items_Wizard">
@@ -4684,35 +4748,35 @@
                 <label>$LOCALIZE[10036]</label>
                 <icon>special://skin/extras/screenshots/widgets/Basic.jpg</icon>
                 <visible>String.IsEqual(Window(Home).Property(WizardStep),Layout)</visible>
-                <onclick>RunScript(script.skinvariables,"run_executebuiltin=special://skin/shortcuts/builtins/skinvariables-wizardcategories.json",use_rules,basic=SetBool,category=SetBool,combined=Reset,hidemenu=Always,compound=Reset,expanded=Reset,shortcut=default_home,position=0)</onclick>
+                <onclick>RunScript(script.skinvariables,"run_executebuiltin=special://skin/shortcuts/builtins/skinvariables-wizardcategories.json",use_rules,basic=SetBool,category=SetBool,widgetmode=Skin.Reset(Hub.Home.WidgetMode),hidemenu=Always,compound=Reset,expanded=Reset,shortcut=default_home,position=0)</onclick>
                 <property name="selected">$VAR[Exp_Var_Layout_IsBasic]</property>
             </item>
             <item>
                 <label>$LOCALIZE[31083]</label>
-                <icon>special://skin/extras/screenshots/widgets/Combined.jpg</icon>
+                <icon>special://skin/extras/screenshots/layout/Combined.jpg</icon>
                 <visible>String.IsEqual(Window(Home).Property(WizardStep),Layout)</visible>
-                <onclick>RunScript(script.skinvariables,"run_executebuiltin=special://skin/shortcuts/builtins/skinvariables-wizardcategories.json",use_rules,basic=Reset,category=SetBool,combined=SetBool,hidemenu=Topbar,compound=Reset,expanded=Reset,shortcut=default_home,position=1)</onclick>
+                <onclick>RunScript(script.skinvariables,"run_executebuiltin=special://skin/shortcuts/builtins/skinvariables-wizardcategories.json",use_rules,basic=Reset,category=SetBool,widgetmode=Skin.SetString(Hub.Home.WidgetMode,Combined),hidemenu=Topbar,compound=Reset,expanded=Reset,shortcut=default_home,position=1)</onclick>
                 <property name="selected">$VAR[Exp_Var_Layout_IsCombined]</property>
             </item>
             <item>
                 <label>$LOCALIZE[31143]</label>
                 <icon>special://skin/extras/screenshots/widgets/Classic.jpg</icon>
                 <visible>String.IsEqual(Window(Home).Property(WizardStep),Layout)</visible>
-                <onclick>RunScript(script.skinvariables,"run_executebuiltin=special://skin/shortcuts/builtins/skinvariables-wizardcategories.json",use_rules,basic=Reset,category=SetBool,combined=Reset,hidemenu=Library,compound=Reset,expanded=Reset,shortcut=default_home,position=2)</onclick>
+                <onclick>RunScript(script.skinvariables,"run_executebuiltin=special://skin/shortcuts/builtins/skinvariables-wizardcategories.json",use_rules,basic=Reset,category=SetBool,widgetmode=Skin.Reset(Hub.Home.WidgetMode),hidemenu=Library,compound=Reset,expanded=Reset,shortcut=default_home,position=2)</onclick>
                 <property name="selected">$VAR[Exp_Var_Layout_IsClassic]</property>
             </item>
             <item>
                 <label>$LOCALIZE[31451]</label>
                 <icon>special://skin/extras/screenshots/widgets/Compound.jpg</icon>
                 <visible>String.IsEqual(Window(Home).Property(WizardStep),Layout)</visible>
-                <onclick>RunScript(script.skinvariables,"run_executebuiltin=special://skin/shortcuts/builtins/skinvariables-wizardcategories.json",use_rules,basic=Reset,category=Reset,combined=Reset,hidemenu=Topbar,compound=Reset,expanded=Reset,shortcut=basic_library,position=3)</onclick>
+                <onclick>RunScript(script.skinvariables,"run_executebuiltin=special://skin/shortcuts/builtins/skinvariables-wizardcategories.json",use_rules,basic=Reset,category=Reset,widgetmode=Skin.Reset(Hub.Home.WidgetMode),hidemenu=Topbar,compound=Reset,expanded=Reset,shortcut=basic_library,position=3)</onclick>
                 <property name="selected">$VAR[Exp_Var_Layout_IsCompound]</property>
             </item>
             <item>
                 <label>$LOCALIZE[31150]</label>
                 <icon>special://skin/extras/screenshots/widgets/Categories.jpg</icon>
                 <visible>String.IsEqual(Window(Home).Property(WizardStep),Layout)</visible>
-                <onclick>RunScript(script.skinvariables,"run_executebuiltin=special://skin/shortcuts/builtins/skinvariables-wizardcategories.json",use_rules,basic=Reset,category=Reset,combined=Reset,hidemenu=Library,compound=Reset,expanded=Reset,shortcut=default_home,position=4)</onclick>
+                <onclick>RunScript(script.skinvariables,"run_executebuiltin=special://skin/shortcuts/builtins/skinvariables-wizardcategories.json",use_rules,basic=Reset,category=Reset,widgetmode=Skin.Reset(Hub.Home.WidgetMode),hidemenu=Library,compound=Reset,expanded=Reset,shortcut=default_home,position=4)</onclick>
                 <property name="selected">$VAR[Exp_Var_Layout_IsCategories]</property>
             </item>
         </content>

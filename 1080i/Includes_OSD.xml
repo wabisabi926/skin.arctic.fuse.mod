@@ -1515,7 +1515,9 @@
         <include content="Object_Left" condition="Skin.HasSetting(Views.DisableItemPeek)">
             <param name="left">40</param>
         </include>
-        <left>-120</left>
+        <include content="Object_Left" condition="Skin.String(Home.SideMenuCollapse,Never)">
+            <param name="left">-120</param>
+        </include>
     </include>
 
     <include name="OSD_Info_Viewline">

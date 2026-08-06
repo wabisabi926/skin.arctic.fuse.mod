@@ -1322,7 +1322,7 @@ msgstr "Ikony studyjne"
 
 #: /1080i/SkinSettings.xml
 msgctxt "#31280"
-msgid "Seekbar displays plot with title details"
+msgid "Manage the layout and categories displayed in the add-ons hub."
 msgstr "Fabuła i szczegóły tytułu na pask przewijania"
 
 #: /1080i/Includes_Labels.xml
@@ -2405,7 +2405,7 @@ msgstr ""
 
 #: /1080i/Includes_Items.xml
 msgctxt "#31548"
-msgid "This feature is only supported on 16:9 displays.[CR]Your current aspect ratio is $INFO[Skin.AspectRatio,[B],[/B]].[CR][CR]Switch to a 16:9 display or resolution to enable this feature."
+msgid "[B]Wall[/B] displays widgets in a grid below a horizontal widget selector."
 msgstr ""
 
 #: /1080i/Includes_Shortcuts_Window.xml

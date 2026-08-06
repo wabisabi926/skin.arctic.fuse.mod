@@ -1328,7 +1328,7 @@ msgstr "Ícones de estúdio"
 
 #: /1080i/SkinSettings.xml
 msgctxt "#31280"
-msgid "Seekbar displays plot with title details"
+msgid "Manage the layout and categories displayed in the add-ons hub."
 msgstr "A barra de progresso mostrar trama com detalhes do título"
 
 #: /1080i/Includes_Labels.xml
@@ -2190,12 +2190,12 @@ msgstr "Escolher pré-definição"
 
 #: /1080i/Custom_1115_Dialog_Shortcuts_Window.xml
 msgctxt "#31462"
-msgid "[B]Combined[/B] displays a single widget with a horizontal widget selector underneath."
+msgid "[B]Combined[/B] displays a single widget below a horizontal widget selector."
 msgstr "[B]Modo combinado[/B] exibe um único widget com um seletor de widget horizontal embaixo. Os widgets são alterados navegando para a esquerda e para a direita no seletor de widgets."
 
 #: /1080i/Custom_1115_Dialog_Shortcuts_Window.xml
 msgctxt "#31463"
-msgid "[B]Stacked[/B] displays all widgets vertically one after the other."
+msgid "[B]Standard[/B] displays all widgets vertically one after the other."
 msgstr "[B]Modo empilhado[/B] exibe todos os widgets verticalmente, um após o outro. Os widgets são alterados navegando para cima e para baixo no grupo."
 
 #: /1080i/Custom_1115_Dialog_Shortcuts_Window.xml
@@ -2620,7 +2620,7 @@ msgstr "Ontem"
 
 #: /1080i/Includes_Items.xml
 msgctxt "#31548"
-msgid "This feature is only supported on 16:9 displays.[CR]Your current aspect ratio is $INFO[Skin.AspectRatio,[B],[/B]].[CR][CR]Switch to a 16:9 display or resolution to enable this feature."
+msgid "[B]Wall[/B] displays widgets in a grid below a horizontal widget selector."
 msgstr ""
 
 #: /1080i/Includes_Shortcuts_Window.xml

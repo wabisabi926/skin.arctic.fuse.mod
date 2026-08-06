@@ -369,6 +369,11 @@
         <value>$LOCALIZE[10037]</value>
     </variable>
 
+    <variable name="Label_Setting_PosterWallLayout">
+        <value condition="Skin.HasSetting(Enable.WallDetailedLabels)">$LOCALIZE[31137]</value>
+        <value>$LOCALIZE[10037]</value>
+    </variable>
+
     <variable name="Label_Setting_CardViewMode">
         <value condition="Skin.HasSetting(View.UseTextBasedCard)">$LOCALIZE[31329]</value>
         <value>$LOCALIZE[31330]</value>
@@ -972,15 +977,15 @@
     </variable>
     <variable name="Label_Setting_ListBigPosterDetailedView">
         <value condition="Skin.HasSetting(Disable.ListBigPosterDetailedView)">$LOCALIZE[10037]</value>
-        <value>$LOCALIZE[29915]</value>
+        <value>$LOCALIZE[31137]</value>
     </variable>
     <variable name="Label_Setting_ListBigLandscapeDetailedView">
         <value condition="Skin.HasSetting(Disable.ListBigLandscapeDetailedView)">$LOCALIZE[10037]</value>
-        <value>$LOCALIZE[29915]</value>
+        <value>$LOCALIZE[31137]</value>
     </variable>
     <variable name="Label_Setting_ComboListDetailedView">
         <value condition="Skin.HasSetting(Disable.ComboListDetailedView)">$LOCALIZE[10037]</value>
-        <value>$LOCALIZE[29915]</value>
+        <value>$LOCALIZE[31137]</value>
     </variable>
 
     <variable name="Label_SearchDiscover_Switch">
@@ -2075,12 +2080,6 @@
         <value condition="Window.IsMedia + String.IsEqual(Container.FolderName,Skin Variables) + !String.IsEmpty(Window.Property(MediaFilter.BaseDir.Name))">$INFO[Window.Property(MediaFilter.BaseDir.Name)]</value>
 
         <!-- Combined View Labels -->
-        <value condition="Window.IsMedia + Control.IsVisible(502)">$INFO[Container.Content,[CAPITALIZE],[/CAPITALIZE] [COLOR=main_fg_30]&gt;[/COLOR] ]$INFO[Container(502).ListItem.Label]</value>
-        <value condition="Window.IsMedia + Control.IsVisible(512)">$INFO[Container.Content,[CAPITALIZE],[/CAPITALIZE] [COLOR=main_fg_30]&gt;[/COLOR] ]$INFO[Container(512).ListItem.Label]</value>
-        <value condition="Window.IsMedia + Control.IsVisible(522)">$INFO[Container.Content,[CAPITALIZE],[/CAPITALIZE] [COLOR=main_fg_30]&gt;[/COLOR] ]$INFO[Container(522).ListItem.Label]</value>
-        <value condition="Window.IsMedia + Control.IsVisible(542)">$INFO[Container.Content,[CAPITALIZE],[/CAPITALIZE] [COLOR=main_fg_30]&gt;[/COLOR] ]$INFO[Container(542).ListItem.Label]</value>
-        <value condition="Window.IsMedia + Control.IsVisible(552)">$INFO[Container.Content,[CAPITALIZE],[/CAPITALIZE] [COLOR=main_fg_30]&gt;[/COLOR] ]$INFO[Container(552).ListItem.Label]</value>
-        <value condition="Window.IsMedia + Control.IsVisible(572)">$INFO[Container.Content,[CAPITALIZE],[/CAPITALIZE] [COLOR=main_fg_30]&gt;[/COLOR] ]$INFO[Container(572).ListItem.Label]</value>
         <value condition="Window.IsMedia + Control.IsVisible(524)">$INFO[Container.Content,[CAPITALIZE],[/CAPITALIZE] [COLOR=main_fg_30]&gt;[/COLOR] ]$INFO[Container(524).ListItem.Label]</value>
 
         <!-- Playlist label -->
@@ -2094,14 +2093,15 @@
         <value condition="Container.Content(episodes) + !String.IsEmpty(Container.FolderName) + String.IsEqual(Container.FolderName,Container.ShowTitle)">$LOCALIZE[20360]</value>
 
         <!-- Category Labels -->
-        <value condition="!String.IsEmpty(Container.PluginCategory)">$INFO[Container.PluginCategory]</value>
-        <value condition="!String.IsEmpty(Container.FolderName)">$INFO[Container.FolderName]</value>
+        <value condition="Window.IsMedia + !String.IsEmpty(Container.PluginCategory)">$INFO[Container.PluginCategory]</value>
+        <value condition="Window.IsMedia + !String.IsEmpty(Container.FolderName)">$INFO[Container.FolderName]</value>
+        <value condition="Window.IsMedia + !String.IsEmpty(Container.PluginName)">$LOCALIZE[24000]</value>
         <value condition="Window.IsVisible(MyPVRGuide.xml)">$INFO[Container(11).ListItem.Label]</value>
         <value condition="Window.IsVisible(10025)">$LOCALIZE[14236]</value>
         <value condition="Window.IsVisible(10502)">$LOCALIZE[14237]</value>
         <value condition="Window.IsVisible(pictures)">$LOCALIZE[10002]</value>
         <value condition="Window.IsVisible(favouritesbrowser)">$LOCALIZE[1036]</value>
-
+        <value condition="Window.IsVisible(games)">$LOCALIZE[10821]</value>
 
         <value condition="!String.IsEmpty(Skin.String(Home.Label))">$INFO[Skin.String(Home.Label)]</value>
         <value condition="Window.IsVisible(Home) + Skin.HasSetting(Hub.Home.DisableSubmenu) + !String.IsEmpty(Container(303).ListItem.Label)">$INFO[Container(303).ListItem.Label]</value>

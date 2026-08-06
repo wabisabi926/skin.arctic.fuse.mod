@@ -3298,8 +3298,12 @@
 
                 <include content="Object_Control" condition="$PARAM[selected]">
                     <param name="control">image</param>
-                    <include>Texture_Menu_Highlight_H</include>
-                    <right>-20</right>
+                    <include>Texture_Highlight_Scrollbar_H</include>
+                    <top>70</top>
+                    <height>10</height>
+                    <width>286</width>
+                    <left>20</left>
+                    <right>20</right>
                 </include>
 
                 <control type="group">
@@ -3324,8 +3328,8 @@
                             <param name="name">$VAR[Label_VideoInfo_DetailsItem_Prefix_Selected,, ]$PARAM[misc]</param>
                             <param name="role">$INFO[ListItem.Label]</param>
                             <param name="include_labels">$PARAM[detailed]</param>
-                            <param name="textcolor_top">$VAR[ColorSelected]</param>
-                            <param name="textcolor_sub">$VAR[ColorSelected]</param>
+                            <param name="textcolor_top">white</param>
+                            <param name="textcolor_sub">white</param>
                             <include content="Object_InfoCircle_Image">
                                 <param name="colordiffuse">white</param>
                                 <param name="icon">$VAR[Image_Info_CombinedThumb]</param>
@@ -3353,8 +3357,8 @@
                             <param name="name">$PARAM[misc]</param>
                             <param name="role">$INFO[ListItem.Label]</param>
                             <param name="include_labels">$PARAM[detailed]</param>
-                            <param name="textcolor_top">$VAR[ColorSelected]</param>
-                            <param name="textcolor_sub">$VAR[ColorSelected]</param>
+                            <param name="textcolor_top">white</param>
+                            <param name="textcolor_sub">white</param>
                             <param name="aspectratio">keep</param>
                         </include>
                     </control>
@@ -3376,8 +3380,8 @@
                             <param name="name">$PARAM[misc]</param>
                             <param name="role">$INFO[ListItem.Label]</param>
                             <param name="include_labels">$PARAM[detailed]</param>
-                            <param name="textcolor_top">$VAR[ColorSelected]</param>
-                            <param name="textcolor_sub">$VAR[ColorSelected]</param>
+                            <param name="textcolor_top">white</param>
+                            <param name="textcolor_sub">white</param>
                             <param name="aspectratio">keep</param>
                         </include>
                     </control>
@@ -3385,7 +3389,12 @@
                         <left>120</left>
                         <height>72</height>
                         <centertop>50%</centertop>
-                        <include condition="$PARAM[selected]">Color_SelectedText</include>
+                        <include content="Object_TextColor" condition="$PARAM[selected]">
+                            <param name="textcolor">white</param>
+                        </include>
+                        <include content="Object_SelectedColor" condition="$PARAM[selected]">
+                            <param name="selectedcolor">white</param>
+                        </include>
                         <label>$INFO[ListItem.Label]</label>
 
                         <font>font_mini</font>
