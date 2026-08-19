@@ -688,6 +688,11 @@
         <value>audio/$INFO[VideoPlayer.AudioCodec].png</value>
     </variable>
 
+    <variable name="Image_ProcessInfo_Logo">
+        <value condition="VideoPlayer.Content(livetv)">special://skin/extras/icons/livetv.png</value>
+        <value>special://skin/extras/icons/video.png</value>
+    </variable>
+
     <variable name="Image_Player_RottenTomatoes">
         <value condition="String.IsEqual(Window(Home).Property(TMDbHelper.Player.RottenTomatoes_Image),certified)">certified.png</value>
         <value condition="String.IsEqual(Window(Home).Property(TMDbHelper.Player.RottenTomatoes_Image),fresh)">rtfresh.png</value>

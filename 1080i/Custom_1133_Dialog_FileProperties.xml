@@ -6,7 +6,7 @@
 
         <include content="Dialog_PictureInfo">
             <param name="dialog_size">Dimension_DialogMainMenu</param>
-            <param name="dialog_right">693</param>
+            <param name="dialog_right">1280</param>
             <param name="include_items">Items_Dialog_PictureInfo_VideoInfo</param>
             <param name="icon">$INFO[Window.Property(icon)]</param>
             <param name="header">$INFO[Window.Property(header)]</param>

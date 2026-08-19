@@ -2569,7 +2569,187 @@
         </include>
     </include>
 
+    <include name="Items_Dialog_PictureInfo_Layout">
+        <param name="include_scrollbar_left">true</param>
+        <param name="include_scrollbar_right">true</param>
+        <definition>
+            <control type="group">
+                <left>40</left>
+                <right>40</right>
+                <top>40</top>
+                <control type="group">
+                    <top>100</top>
+                    <height>80</height>
+                    <width>50%</width>
+                    <control type="image">
+                        <centertop>50%</centertop>
+                        <height>40</height>
+                        <width>40</width>
+                        <bordersize>-8</bordersize>
+                        <texture colordiffuse="dialog_fg_90">$PARAM[header_image_left]</texture>
+                    </control>
+                    <control type="label">
+                        <label>$PARAM[header_label_left]</label>
+                        <textoffsetx>60</textoffsetx>
+                        <font>font_main_bold</font>
+                        <aligny>center</aligny>
+                        <textcolor>dialog_fg_90</textcolor>
+                    </control>
+                    <control type="image">
+                        <bottom>0</bottom>
+                        <height>1</height>
+                        <left>40</left>
+                        <right>40</right>
+                        <texture colordiffuse="$VAR[Color_DialogBorder]">common/white.png</texture>
+                    </control>
+                </control>
+                <control type="group">
+                    <top>100</top>
+                    <height>80</height>
+                    <left>50%</left>
+                    <width>50%</width>
+                    <control type="image">
+                        <centertop>50%</centertop>
+                        <height>40</height>
+                        <width>40</width>
+                        <bordersize>-8</bordersize>
+                        <texture colordiffuse="dialog_fg_90">$PARAM[header_image_right]</texture>
+                    </control>
+                    <control type="label">
+                        <label>$PARAM[header_label_right]</label>
+                        <textoffsetx>60</textoffsetx>
+                        <font>font_main_bold</font>
+                        <aligny>center</aligny>
+                        <textcolor>dialog_fg_90</textcolor>
+                    </control>
+                    <control type="image">
+                        <bottom>0</bottom>
+                        <height>1</height>
+                        <left>40</left>
+                        <right>40</right>
+                        <texture colordiffuse="$VAR[Color_DialogBorder]">common/white.png</texture>
+                    </control>
+                </control>
+                <control type="fixedlist" id="5">
+                    <left>0</left>
+                    <top>180</top>
+                    <bottom>40</bottom>
+                    <width>50%</width>
+                    <onleft condition="Control.IsVisible(62)">62</onleft>
+                    <onleft condition="!Control.IsVisible(62)">6</onleft>
+                    <onright condition="Control.IsVisible(61)">61</onright>
+                    <onright condition="!Control.IsVisible(61)">6</onright>
+                    <onclick>RunScript(script.skinvariables,run_dialog=ok,heading=$INFO[Container(5).ListItem.Label],message=$INFO[Container(5).ListItem.Label2])</onclick>
+                    <orientation>vertical</orientation>
+                    <movement>4</movement>
+                    <include content="Object_PageControl" condition="$PARAM[include_scrollbar_left]">
+                        <param name="pagecontrol">61</param>
+                    </include>
+                    <itemlayout height="106">
+                        <include>Layout_BasicMeta</include>
+                    </itemlayout>
+                    <focusedlayout height="106">
+                        <include content="Layout_BasicMeta">
+                            <param name="selected">Control.HasFocus(5)</param>
+                        </include>
+                    </focusedlayout>
+                    <include>$PARAM[include_items_left]</include>
+                </control>
+                <control type="fixedlist" id="6">
+                    <left>50%</left>
+                    <top>180</top>
+                    <bottom>40</bottom>
+                    <width>50%</width>
+                    <onleft condition="Control.IsVisible(61)">61</onleft>
+                    <onleft condition="!Control.IsVisible(61)">5</onleft>
+                    <onright condition="Control.IsVisible(62)">62</onright>
+                    <onright condition="!Control.IsVisible(62)">5</onright>
+                    <onclick>RunScript(script.skinvariables,run_dialog=ok,heading=$INFO[Container(5).ListItem.Label],message=$INFO[Container(5).ListItem.Label2])</onclick>
+                    <orientation>vertical</orientation>
+                    <movement>4</movement>
+                    <include content="Object_PageControl" condition="$PARAM[include_scrollbar_right]">
+                        <param name="pagecontrol">62</param>
+                    </include>
+                    <itemlayout height="106">
+                        <include>Layout_BasicMeta</include>
+                    </itemlayout>
+                    <focusedlayout height="106">
+                        <include content="Layout_BasicMeta">
+                            <param name="selected">Control.HasFocus(6)</param>
+                        </include>
+                    </focusedlayout>
+                    <include>$PARAM[include_items_right]</include>
+                </control>
+                <include content="Dialog_Scrollbar" condition="$PARAM[include_scrollbar_left]">
+                    <param name="id">61</param>
+                    <param name="inset">false</param>
+                    <onleft>5</onleft>
+                    <onright>6</onright>
+                    <top>220</top>
+                    <bottom>40</bottom>
+                    <centerleft>50%</centerleft>
+                </include>
+                <include content="Dialog_Scrollbar" condition="$PARAM[include_scrollbar_right]">
+                    <param name="id">62</param>
+                    <param name="inset">false</param>
+                    <onleft>6</onleft>
+                    <onright>5</onright>
+                    <top>220</top>
+                    <bottom>40</bottom>
+                    <centerright>-40</centerright>
+                </include>
+                <control type="group">
+                    <top>140</top>
+                    <right>50%</right>
+                    <include>Dialog_Line_Vert</include>
+                </control>
+            </control>
+        </definition>
+    </include>
+
+    <include name="Items_Dialog_PictureInfo_PictureInfo">
+        <control type="fixedlist" id="5">
+            <left>0</left>
+            <right>0</right>
+            <top>120</top>
+            <bottom>40</bottom>
+            <movement>5</movement>
+            <onright condition="Control.IsVisible(61)">61</onright>
+            <onleft condition="Control.IsVisible(61)">61</onleft>
+            <include>Size_Dialog_Pad</include>
+            <onclick>RunScript(script.skinvariables,run_dialog=ok,heading=$INFO[Container(5).ListItem.Label],message=$INFO[Container(5).ListItem.Label2])</onclick>
+            <orientation>vertical</orientation>
+            <pagecontrol>61</pagecontrol>
+            <itemlayout height="106">
+                <include>Layout_BasicMeta</include>
+            </itemlayout>
+            <focusedlayout height="106">
+                <include content="Layout_BasicMeta">
+                    <param name="selected">Control.HasFocus(5)</param>
+                </include>
+            </focusedlayout>
+        </control>
+        <include content="Dialog_Scrollbar">
+            <param name="id">61</param>
+            <param name="inset">false</param>
+            <onleft>5</onleft>
+            <onright>5</onright>
+            <bottom>40</bottom>
+        </include>
+    </include>
+
     <include name="Items_Dialog_PictureInfo_VideoInfo">
+        <include content="Items_Dialog_PictureInfo_Layout">
+            <param name="header_image_left">special://skin/extras/icons/video.png</param>
+            <param name="header_label_left">$LOCALIZE[291]</param>
+            <param name="header_image_right">special://skin/extras/icons/file-video.png</param>
+            <param name="header_label_right">$LOCALIZE[33029]</param>
+            <param name="include_items_left">Items_Dialog_PictureInfo_VideoInfo_Left</param>
+            <param name="include_items_right">Items_Dialog_PictureInfo_VideoInfo_Right</param>
+        </include>
+    </include>
+
+    <include name="Items_Dialog_PictureInfo_VideoInfo_Left">
         <content>
             <item>
                 <label>$INFO[Window.Property(Data01.Label)]</label>
@@ -2606,6 +2786,11 @@
                 <label2>$INFO[Window.Property(Data07.Label2)]</label2>
                 <visible>!String.IsEmpty(Window.Property(Data07.Label2))</visible>
             </item>
+        </content>
+    </include>
+
+    <include name="Items_Dialog_PictureInfo_VideoInfo_Right">
+        <content>
             <item>
                 <label>$INFO[Window.Property(Data08.Label)]</label>
                 <label2>$INFO[Window.Property(Data08.Label2)]</label2>
@@ -2673,6 +2858,7 @@
         <item>
             <label>$PARAM[label]</label>
             <label2>$INFO[$PARAM[info]]$PARAM[affix]</label2>
+            <property name="progress">$PARAM[progress]</property>
             <visible>!String.IsEmpty($PARAM[info])</visible>
             <visible>!String.IsEqual($PARAM[info],$LOCALIZE[13205])</visible>
             <visible>VideoPlayer.Content(livetv)</visible>
@@ -2683,22 +2869,76 @@
         <item>
             <label>$PARAM[label]</label>
             <label2>$INFO[$PARAM[info]]$PARAM[affix]</label2>
+            <property name="progress">$PARAM[progress]</property>
             <visible>!String.IsEmpty($PARAM[info])</visible>
             <visible>!String.IsEqual($PARAM[info],$LOCALIZE[13205])</visible>
             <visible>!VideoPlayer.Content(livetv)</visible>
         </item>
     </include>
 
+    <include name="Items_DialogCustom_ProcessInfo_Progress">
+        <control type="progress">
+            <centerbottom>0</centerbottom>
+            <height>12</height>
+            <info>system.memory(used)</info>
+            <visible>!String.IsEmpty(ListItem.Property(progress))</visible>
+            <visible>String.IsEqual(ListItem.Property(progress),System Memory)</visible>
+        </control>
+        <control type="progress">
+            <centerbottom>0</centerbottom>
+            <height>12</height>
+            <info>System.CPUUsage</info>
+            <visible>!String.IsEmpty(ListItem.Property(progress))</visible>
+            <visible>String.IsEqual(ListItem.Property(progress),System CPU)</visible>
+        </control>
+        <control type="progress">
+            <centerbottom>0</centerbottom>
+            <height>12</height>
+            <info>Player.CacheLevel</info>
+            <visible>!String.IsEmpty(ListItem.Property(progress))</visible>
+            <visible>String.IsEqual(ListItem.Property(progress),Player Cache)</visible>
+        </control>
+        <control type="progress">
+            <centerbottom>0</centerbottom>
+            <height>12</height>
+            <info>PVR.ActStreamProgrSignal</info>
+            <visible>!String.IsEmpty(ListItem.Property(progress))</visible>
+            <visible>String.IsEqual(ListItem.Property(progress),PVR Signal)</visible>
+        </control>
+        <control type="progress">
+            <centerbottom>0</centerbottom>
+            <height>12</height>
+            <info>PVR.ActStreamProgrSNR</info>
+            <visible>!String.IsEmpty(ListItem.Property(progress))</visible>
+            <visible>String.IsEqual(ListItem.Property(progress),PVR SNR)</visible>
+        </control>
+    </include>
+
     <include name="Items_DialogCustom_ProcessInfo">
+        <include content="Items_Dialog_PictureInfo_Layout">
+            <param name="header_image_left">$VAR[Image_ProcessInfo_Logo]</param>
+            <param name="header_label_left">$VAR[Label_ProcessInfo_Header]</param>
+            <param name="header_image_right">special://skin/extras/icons/configure.png</param>
+            <param name="header_label_right">$LOCALIZE[13000]</param>
+            <param name="include_items_left">Items_DialogCustom_ProcessInfo_Left</param>
+            <param name="include_items_right">Items_DialogCustom_ProcessInfo_Right</param>
+        </include>
+    </include>
+
+    <include name="Items_DialogCustom_ProcessInfo_Left">
         <content>
             <!-- Process -->
             <item>
                 <label>$LOCALIZE[38031]</label>
-                <label2>$INFO[Player.Process(videodar),, $LOCALIZE[31260]]$INFO[Player.Process(videofps),$COMMA , $LOCALIZE[31259]]$INFO[VideoPlayer.VideoBitrate,$COMMA , kb/s]</label2>
+                <label2>$INFO[Player.Process(videodar),, $LOCALIZE[31260]]$INFO[Player.Process(videofps), • , $LOCALIZE[31259]]$INFO[VideoPlayer.VideoBitrate, • [UPPERCASE], kb/s[/UPPERCASE]]</label2>
             </item>
             <item>
                 <label>$LOCALIZE[169]</label>
-                <label2>$INFO[Player.Process(videowidth),,x]$INFO[Player.Process(videoheight),, $LOCALIZE[31261]]</label2>
+                <label2>$INFO[Player.Process(videowidth),, x ]$INFO[Player.Process(videoheight),, $LOCALIZE[31261]]</label2>
+            </item>
+            <item>
+                <label>$LOCALIZE[20474]</label>
+                <label2>$VAR[Label_VideoHDRCodec,[UPPERCASE],[/UPPERCASE]]$INFO[VideoPlayer.VideoCodec, • [UPPERCASE],[/UPPERCASE]]</label2>
             </item>
             <include content="Items_DialogCustom_ProcessInfo_VideoObject">
                 <param name="label">$LOCALIZE[31216]</param>
@@ -2715,20 +2955,8 @@
                 <param name="info">Player.Process(amlogic.eoft_gamut)</param>
             </include>
             <item>
-                <label>$LOCALIZE[20474]</label>
-                <label2>$VAR[Label_VideoHDRCodec]$INFO[VideoPlayer.VideoCodec, • [UPPERCASE],[/UPPERCASE]]</label2>
-            </item>
-            <item>
                 <label>$LOCALIZE[292]</label>
-                <label2>$VAR[Label_VideoPlayer_AudioChannels]$INFO[VideoPlayer.AudioCodec, • [UPPERCASE],[/UPPERCASE]]</label2>
-            </item>
-            <item>
-                <label>$LOCALIZE[31256] ($LOCALIZE[31117])</label>
-                <label2>$INFO[system.memory(used)] / $INFO[system.memory(total)] • $INFO[System.Memory(used.percent)]</label2>
-            </item>
-            <item>
-                <label>$LOCALIZE[31256] ($LOCALIZE[31258])</label>
-                <label2>$INFO[System.CpuFrequency]$VAR[Label_System_Temp, • ,]$INFO[System.CpuUsage, • ,]</label2>
+                <label2>$VAR[Label_VideoPlayer_AudioChannels]$INFO[VideoPlayer.AudioCodec, • [UPPERCASE],[/UPPERCASE]]$INFO[VideoPlayer.AudioBitrate, • [UPPERCASE], kb/s[/UPPERCASE]]</label2>
             </item>
             <include content="Items_DialogCustom_ProcessInfo_VideoObject">
                 <param name="label">$LOCALIZE[16038]</param>
@@ -2771,15 +2999,38 @@
             <include content="Items_DialogCustom_ProcessInfo_PVRObject">
                 <param name="label">$LOCALIZE[19008]</param>
                 <param name="info">PVR.ActStreamSignal</param>
+                <param name="progress">PVR Signal</param>
             </include>
             <include content="Items_DialogCustom_ProcessInfo_PVRObject">
                 <param name="label">$LOCALIZE[19009]</param>
                 <param name="info">PVR.ActStreamSNR</param>
+                <param name="progress">PVR SNR</param>
             </include>
             <include content="Items_DialogCustom_ProcessInfo_PVRObject">
                 <param name="label">$LOCALIZE[19012]</param>
                 <param name="info">PVR.ActStreamClient</param>
             </include>
+        </content>
+    </include>
+
+    <include name="Items_DialogCustom_ProcessInfo_Right">
+        <content>
+            <!-- System -->
+            <item>
+                <label>$LOCALIZE[31256] ($LOCALIZE[31117])</label>
+                <label2>$INFO[system.memory(used)] / $INFO[system.memory(total)] • $INFO[System.Memory(used.percent)]</label2>
+                <property name="progress">System Memory</property>
+            </item>
+            <item>
+                <label>$LOCALIZE[31256] ($LOCALIZE[31258])</label>
+                <label2>$INFO[System.CpuFrequency]$VAR[Label_System_Temp, • ,]$INFO[System.CpuUsage, • ,]</label2>
+                <property name="progress">System CPU</property>
+            </item>
+            <item>
+                <label>$LOCALIZE[14200] $LOCALIZE[439]</label>
+                <label2>$INFO[Player.CacheLevel,,%]</label2>
+                <property name="progress">Player Cache</property>
+            </item>
         </content>
     </include>
 

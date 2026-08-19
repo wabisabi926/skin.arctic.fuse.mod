@@ -1319,6 +1319,13 @@
         <value>$LOCALIZE[31134]</value>
     </variable>
 
+    <variable name="Label_ListItemHDRCodec">
+        <value condition="String.IsEqual(ListItem.HdrType,dolbyvision)">Dolby Vision</value>
+        <value condition="String.IsEqual(ListItem.HdrType,hdr10plus)">HDR10+</value>
+        <value condition="String.IsEqual(ListItem.HdrType,hdr10)">HDR</value>
+        <value condition="String.IsEqual(ListItem.HdrType,hlg)">HLG</value>
+    </variable>
+
     <variable name="Label_VideoHDRCodec">
         <value condition="String.IsEqual(VideoPlayer.HdrType,dolbyvision)">Dolby Vision</value>
         <value condition="String.IsEqual(VideoPlayer.HdrType,hdr10plus)">HDR10+</value>
@@ -1769,6 +1776,11 @@
         <value condition="Skin.String(Seekbar.TimeDisplay,Combined) + PVR.IsPlayingTV + !String.IsEmpty(PVR.EpgEventRemainingTime)">$INFO[PVR.EpgEventRemainingTime(hh:mm:ss)]</value>
         <value condition="PVR.IsPlayingTV + !String.IsEmpty(PVR.EpgEventDuration)">$INFO[PVR.EpgEventDuration(hh:mm:ss)]</value>
         <value>$INFO[Player.Duration(hh:mm:ss)]</value>
+    </variable>
+
+    <variable name="Label_ProcessInfo_Header">
+        <value condition="VideoPlayer.Content(livetv)">PVR</value>
+        <value>$LOCALIZE[291]</value>
     </variable>
 
     <variable name="Label_ListItem_Status">

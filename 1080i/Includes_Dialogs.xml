@@ -1467,13 +1467,14 @@
     <include name="Dialog_PictureInfo">
         <param name="header">$INFO[ListItem.Label]</param>
         <param name="include_picture">Dialog_PictureInfo_Image</param>
-        <param name="include_items">Items_Null</param>
+        <param name="include_items">Items_Dialog_PictureInfo_PictureInfo</param>
         <param name="include_movement">Items_Null</param>
         <param name="dialog_size">Dimension_DialogFullMenu</param>
-        <param name="dialog_right">520</param>
+        <param name="dialog_right">960</param>
         <param name="include_itemline">false</param>
         <param name="itemline_haspath">true</param>
         <param name="flip">Skin.HasSetting(ContextMenu.FlipMenu)</param>
+        <param name="include_osd_codecs">false</param>
         <definition>
             <include>Dialog_Dim_Overlay</include>
 
@@ -1496,6 +1497,10 @@
                                 <param name="right">$PARAM[dialog_right]</param>
                             </include>
                             <control type="group">
+                                <include content="Object_Left" condition="$PARAM[flip]">
+                                    <param name="left">560</param>
+                                </include>
+                                <width>$PARAM[dialog_right]</width>
                                 <include>Size_Group_Head</include>
                                 <include content="Dialog_Head">
                                     <param name="id">9999</param>
@@ -1510,7 +1515,6 @@
                                 <include>Dialog_Head_CloseButton</include>
                             </control>
                             <control type="group">
-                                <include>Size_Group_Body</include>
                                 <include content="$PARAM[include_picture]">
                                     <param name="icon">$PARAM[icon]</param>
                                 </include>
@@ -1527,67 +1531,30 @@
                             </include>
                             <include condition="$PARAM[flip]">Dialog_Panel</include>
                             <width>$PARAM[dialog_right]</width>
-                            <control type="panel" id="5">
-                                <left>0</left>
-                                <right>0</right>
-                                <top>14</top>
-                                <bottom>20</bottom>
-                                <include>Size_Dialog_Pad</include>
-                                <onclick>RunScript(script.skinvariables,run_dialog=ok,heading=$INFO[Container(5).ListItem.Label],message=$INFO[Container(5).ListItem.Label2])</onclick>
-                                <orientation>horizontal</orientation>
-                                <orientation>vertical</orientation>
-                                <itemlayout height="106">
-                                    <include>Layout_BasicMeta</include>
-                                </itemlayout>
-                                <focusedlayout height="106">
-                                    <include content="Layout_BasicMeta">
-                                        <param name="selected">true</param>
-                                    </include>
-                                </focusedlayout>
-                                <include>$PARAM[include_items]</include>
-                            </control>
-                            <control type="grouplist">
-                                <align>center</align>
-                                <orientation>horizontal</orientation>
-                                <itemgap>10</itemgap>
-                                <bottom>10</bottom>
-                                <height>20</height>
-                                <include content="Object_Circle_Counter">
-                                    <param name="visible">!Integer.IsLess(Container(5).NumPages,1)</param>
-                                    <param name="selected">Integer.IsEqual(Container(5).CurrentPage,1)</param>
-                                </include>
-                                <include content="Object_Circle_Counter">
-                                    <param name="visible">!Integer.IsLess(Container(5).NumPages,2)</param>
-                                    <param name="selected">Integer.IsEqual(Container(5).CurrentPage,2)</param>
-                                </include>
-                                <include content="Object_Circle_Counter">
-                                    <param name="visible">!Integer.IsLess(Container(5).NumPages,3)</param>
-                                    <param name="selected">Integer.IsEqual(Container(5).CurrentPage,3)</param>
-                                </include>
-                                <include content="Object_Circle_Counter">
-                                    <param name="visible">!Integer.IsLess(Container(5).NumPages,4)</param>
-                                    <param name="selected">Integer.IsEqual(Container(5).CurrentPage,4)</param>
-                                </include>
-                            </control>
+                            <include>$PARAM[include_items]</include>
                         </control>
                     </control>
+                    <include content="Object_Control" condition="$PARAM[include_osd_codecs]">
+                        <param name="control">group</param>
+                        <centerbottom>-20</centerbottom>
+                        <left>40</left>
+                        <right>view_pad</right>
+                        <height>80</height>
+                        <include>OSD_Codecs</include>
+                    </include>
                 </control>
         </definition>
     </include>
 
     <include name="Dialog_PictureInfo_Image">
         <param name="icon">$INFO[ListItem.Icon]</param>
-        <param name="diffuse">diffuse/landscape_w1140_h680.png</param>
+        <param name="diffuse">diffuse/poster_w480_h720.png</param>
         <definition>
             <include content="Dialog_Outline_Box">
                 <include>Size_Dialog_Pad</include>
                 <control type="image">
                     <aspectratio scalediffuse="false">scale</aspectratio>
-                    <texture background="true" diffuse="$PARAM[diffuse]" colordiffuse="ff333333">$PARAM[icon]</texture>
-                </control>
-                <control type="image">
-                    <aspectratio scalediffuse="false">keep</aspectratio>
-                    <texture background="true" diffuse="$PARAM[diffuse]">$PARAM[icon]</texture>
+                    <texture fallback="$PARAM[fallback]" background="true" diffuse="$PARAM[diffuse]">$PARAM[icon]</texture>
                 </control>
             </include>
         </definition>
@@ -1595,7 +1562,8 @@
 
     <include name="Dialog_PictureInfo_Video">
         <include content="Dialog_PictureInfo_Image">
-            <param name="icon">$INFO[Player.Icon]</param>
+            <param name="icon">$INFO[Player.Art(poster)]</param>
+            <param name="fallback">$INFO[Player.Icon]</param>
         </include>
     </include>
 
