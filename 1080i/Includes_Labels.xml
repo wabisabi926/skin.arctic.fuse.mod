@@ -1493,7 +1493,7 @@
         <value condition="String.IsEqual(ListItem.AudioCodec,dtshd_ma_x)">DTS-X MA</value>
         <value condition="String.IsEqual(ListItem.AudioCodec,dtshd_ma_x_imax)">DTS-X (IMAX)</value>
         <value condition="String.IsEqual(ListItem.AudioCodec,eac3)">DD+</value>
-        <value condition="String.IsEqual(ListItem.AudioCodec,eac3_ddp_atmos)">DOLBY ATMOS</value>
+        <value condition="String.IsEqual(ListItem.AudioCodec,eac3_ddp_atmos)">DD+ ATMOS</value>
         <value condition="String.IsEqual(ListItem.AudioCodec,flac)">FLAC</value>
         <value condition="String.IsEqual(ListItem.AudioCodec,mp1)">MP1</value>
         <value condition="String.IsEqual(ListItem.AudioCodec,mp2)">MP2</value>

@@ -1728,7 +1728,7 @@
             </include>
             <include content="Info_Line_VideoQuality_Object">
                 <param name="colordiffuse">$PARAM[colordiffuse]</param>
-                <param name="label">DOLBY ATMOS $PARAM[label_audiochannel]</param>
+                <param name="label">DD+ ATMOS $PARAM[label_audiochannel]</param>
                 <param name="visible">$PARAM[visible] + $PARAM[visible_audiochannel] + String.IsEqual($PARAM[listitem_audiocodec],eac3_ddp_atmos)</param>
             </include>
             <include content="Info_Line_VideoQuality_Object">
@@ -3076,20 +3076,20 @@
             <include content="Info_Codecs_StackedText">
                 <param name="topcolor">$VAR[Info_Codecs_AspectRatio_Color_main_fg_90]</param>
                 <param name="bottomcolor">main_fg_70</param>
-                <param name="bottomlabel">[UPPERCASE]$INFO[$PARAM[container]ListItem.VideoCodec][/UPPERCASE]</param>
-                <param name="toplabel">$INFO[$PARAM[container]ListItem.VideoAspect]</param>
+                <param name="bottomlabel">$INFO[$PARAM[container]ListItem.VideoAspect]</param>
+                <param name="toplabel">[UPPERCASE]$INFO[$PARAM[container]ListItem.VideoCodec][/UPPERCASE]</param>
                 <param name="left">-10</param>
                 <param name="visible">$PARAM[visible] + !String.IsEmpty($PARAM[container]ListItem.VideoCodec) + !String.IsEmpty($PARAM[container]ListItem.VideoAspect)</param>
             </include>
 
-            <!-- 3D STEREOSCOPIC -->
+            <!-- HDRType -->
             <include content="Info_Codecs_MonoIcon">
-                <param name="icon">other/3D.png</param>
-                <param name="width">48</param>
-                <param name="iconwidth">64</param>
-                <param name="iconheight">56</param>
+                <param name="icon">$INFO[$PARAM[container]ListItem.HdrType,hdr/,.png]</param>
+                <param name="width">96</param>
+                <param name="iconwidth">96</param>
+                <param name="iconheight">48</param>
                 <param name="left">-10</param>
-                <param name="visible">$PARAM[visible] + $PARAM[container]ListItem.IsStereoscopic</param>
+                <param name="visible">$PARAM[visible] + !String.IsEmpty($PARAM[container]ListItem.HdrType)</param>
             </include>
 
             <!-- AUDIO CHANNELS -->
@@ -3103,41 +3103,30 @@
             </include>
 
             <!-- AUDIO CODEC -->
-            <!-- AAC -->
             <include content="Info_Codecs_MonoIcon">
-                <param name="icon">audio/aac.png</param>
-                <param name="width">80</param>
-                <param name="iconwidth">94</param>
+                <param name="icon">$VAR[Image_ListItem_AudioCodec]</param>
+                <param name="width">96</param>
+                <param name="iconwidth">96</param>
                 <param name="iconheight">48</param>
                 <param name="left">-10</param>
-                <param name="visible">$PARAM[visible] + [String.IsEqual($PARAM[container]ListItem.AudioCodec,aac) | String.IsEqual($PARAM[container]ListItem.AudioCodec,aac_lc) | String.IsEqual($PARAM[container]ListItem.AudioCodec,aac_ssr) | String.IsEqual($PARAM[container]ListItem.AudioCodec,aac_ltp) | String.IsEqual($PARAM[container]ListItem.AudioCodec,he_aac) | String.IsEqual($PARAM[container]ListItem.AudioCodec,he_aac_v2) | String.IsEqual($PARAM[container]ListItem.AudioCodec,aac_latm)]</param>
+                <param name="visible">$PARAM[visible] + !String.IsEmpty($PARAM[container]ListItem.AudioCodec)</param>
             </include>
 
-            <!-- Other -->
+            <!-- 3D STEREOSCOPIC -->
             <include content="Info_Codecs_MonoIcon">
-                <param name="icon">audio/$INFO[$PARAM[container]ListItem.AudioCodec].png</param>
-                <param name="width">80</param>
-                <param name="iconwidth">94</param>
-                <param name="iconheight">48</param>
-                <param name="left">-10</param>
-                <param name="visible">$PARAM[visible] + !String.IsEmpty($PARAM[container]ListItem.AudioCodec) + ![String.IsEqual($PARAM[container]ListItem.AudioCodec,aac) | String.IsEqual($PARAM[container]ListItem.AudioCodec,aac_lc) | String.IsEqual($PARAM[container]ListItem.AudioCodec,aac_ssr) | String.IsEqual($PARAM[container]ListItem.AudioCodec,aac_ltp) | String.IsEqual($PARAM[container]ListItem.AudioCodec,he_aac) | String.IsEqual($PARAM[container]ListItem.AudioCodec,he_aac_v2) | String.IsEqual($PARAM[container]ListItem.AudioCodec,aac_latm)]</param>
-            </include>
-
-            <!-- HDRType -->
-            <include content="Info_Codecs_MonoIcon">
-                <param name="icon">$INFO[$PARAM[container]ListItem.HdrType,hdr/,.png]</param>
-                <param name="width">80</param>
+                <param name="icon">version/3D.png</param>
+                <param name="width">48</param>
                 <param name="iconwidth">64</param>
-                <param name="iconheight">64</param>
+                <param name="iconheight">56</param>
                 <param name="left">-10</param>
-                <param name="visible">$PARAM[visible] + !String.IsEmpty($PARAM[container]ListItem.HdrType)</param>
+                <param name="visible">$PARAM[visible] + $PARAM[container]ListItem.IsStereoscopic</param>
             </include>
 
             <!-- Other -->
             <include content="Info_Codecs_MonoIcon">
                 <param name="icon">$INFO[$PARAM[container]ListItem.VideoVersionName,version/,.png]</param>
-                <param name="width">80</param>
-                <param name="iconwidth">48</param>
+                <param name="width">96</param>
+                <param name="iconwidth">96</param>
                 <param name="iconheight">48</param>
                 <param name="left">-22</param>
                 <param name="visible">$PARAM[visible] + !String.IsEmpty($PARAM[container]ListItem.VideoVersionName)</param>
