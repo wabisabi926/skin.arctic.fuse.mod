@@ -1474,7 +1474,8 @@
         <param name="include_itemline">false</param>
         <param name="itemline_haspath">true</param>
         <param name="flip">Skin.HasSetting(ContextMenu.FlipMenu)</param>
-        <param name="include_osd_codecs">false</param>
+        <param name="include_codecs">false</param>
+        <param name="codecs">OSD_Codecs</param>
         <definition>
             <include>Dialog_Dim_Overlay</include>
 
@@ -1489,6 +1490,24 @@
 
                         <!-- Right -->
                         <control type="group">
+                            <include content="Object_Left" condition="$PARAM[flip]">
+                                <param name="left">560</param>
+                            </include>
+                            <width>$PARAM[dialog_right]</width>
+                            <include>Size_Group_Head</include>
+                            <include content="Dialog_Head">
+                                <param name="id">9999</param>
+                                <param name="label">$PARAM[header]</param>
+                            </include>
+                            <include content="Dialog_ItemLine" condition="$PARAM[include_itemline]">
+                                <param name="visible">true</param>
+                                <param name="label">$PARAM[itemline]</param>
+                                <param name="haspath">$PARAM[itemline_haspath]</param>
+                            </include>
+                            <include condition="![$PARAM[include_itemline]]">Dialog_Line</include>
+                            <include>Dialog_Head_CloseButton</include>
+                        </control>
+                        <control type="group">
                             <include content="Object_Left" condition="!$PARAM[flip]">
                                 <param name="left">$PARAM[dialog_right]</param>
                             </include>
@@ -1496,24 +1515,6 @@
                             <include content="Object_Right" condition="$PARAM[flip]">
                                 <param name="right">$PARAM[dialog_right]</param>
                             </include>
-                            <control type="group">
-                                <include content="Object_Left" condition="$PARAM[flip]">
-                                    <param name="left">560</param>
-                                </include>
-                                <width>$PARAM[dialog_right]</width>
-                                <include>Size_Group_Head</include>
-                                <include content="Dialog_Head">
-                                    <param name="id">9999</param>
-                                    <param name="label">$PARAM[header]</param>
-                                </include>
-                                <include content="Dialog_ItemLine" condition="$PARAM[include_itemline]">
-                                    <param name="visible">true</param>
-                                    <param name="label">$PARAM[itemline]</param>
-                                    <param name="haspath">$PARAM[itemline_haspath]</param>
-                                </include>
-                                <include condition="![$PARAM[include_itemline]]">Dialog_Line</include>
-                                <include>Dialog_Head_CloseButton</include>
-                            </control>
                             <control type="group">
                                 <include content="$PARAM[include_picture]">
                                     <param name="icon">$PARAM[icon]</param>
@@ -1534,13 +1535,13 @@
                             <include>$PARAM[include_items]</include>
                         </control>
                     </control>
-                    <include content="Object_Control" condition="$PARAM[include_osd_codecs]">
+                    <include content="Object_Control" condition="$PARAM[include_codecs]">
                         <param name="control">group</param>
                         <centerbottom>-20</centerbottom>
                         <left>40</left>
                         <right>view_pad</right>
                         <height>80</height>
-                        <include>OSD_Codecs</include>
+                        <include>$PARAM[codecs]</include>
                     </include>
                 </control>
         </definition>

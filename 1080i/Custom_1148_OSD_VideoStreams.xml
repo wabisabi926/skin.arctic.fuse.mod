@@ -72,6 +72,10 @@
                                 <visible>Control.HasFocus(6805)</visible>
                                 <include content="OSD_Codecs">
                                     <param name="anchor">false</param>
+                                    <param name="topcolor_resolution">$VAR[ColorSelected]</param>
+                                    <param name="topcolor_codec">$VAR[ColorSelected]</param>
+                                    <param name="topcolor_framerate">$VAR[ColorSelected]</param>
+                                    <param name="topcolor_audiochannels">$VAR[ColorSelected]</param>
                                     <param name="top_textcolor">$VAR[ColorSelected]</param>
                                     <param name="sub_textcolor">$VAR[ColorSelected]</param>
                                 </include>

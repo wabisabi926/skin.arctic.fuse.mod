@@ -1032,6 +1032,10 @@
                 </control>
                 <include content="OSD_Codecs_Icon" condition="[Skin.String(Furniture.CodecStyle,Colour) | Skin.String(Furniture.CodecStyle,Monochrome)]">
                     <param name="include_fps">$PARAM[include_fps]</param>
+                    <param name="topcolor_resolution">$PARAM[topcolor_resolution]</param>
+                    <param name="topcolor_codec">$PARAM[topcolor_codec]</param>
+                    <param name="topcolor_framerate">$PARAM[topcolor_framerate]</param>
+                    <param name="topcolor_audiochannels">$PARAM[topcolor_audiochannels]</param>
                     <param name="topcolor">$PARAM[top_textcolor]</param>
                     <param name="bottomcolor">$PARAM[sub_textcolor]</param>
                     <param name="anchor">$PARAM[anchor]</param>
@@ -1058,6 +1062,10 @@
     <include name="OSD_Codecs_Icon">
         <param name="anchor">true</param>
         <param name="include_fps">true</param>
+        <param name="topcolor_resolution">$VAR[Info_Codecs_Resolution_Color_dialog_fg_90]</param>
+        <param name="topcolor_codec">$VAR[Info_Codecs_Codec_Color_dialog_fg_90]</param>
+        <param name="topcolor_framerate">$VAR[Info_Codecs_FrameRate_Color_dialog_fg_90]</param>
+        <param name="topcolor_audiochannels">$VAR[Info_Codecs_AudioChannels_Color_dialog_fg_90]</param>
         <param name="topcolor">panel_fg_90</param>
         <param name="bottomcolor">panel_fg_70</param>
         <definition>
@@ -1069,7 +1077,7 @@
             </control>
 
             <include content="Info_Codecs_StackedText">
-                <param name="topcolor">$PARAM[topcolor]</param>
+                <param name="topcolor">$PARAM[topcolor_resolution]</param>
                 <param name="bottomcolor">$PARAM[bottomcolor]</param>
                 <param name="toplabel">$VAR[Label_OSD_VideoQuality]</param>
                 <param name="bottomlabel">$VAR[Label_OSD_VideoResolution]</param>
@@ -1080,7 +1088,7 @@
 
             <!-- Codec / Aspect -->
             <include content="Info_Codecs_StackedText">
-                <param name="topcolor">$PARAM[topcolor]</param>
+                <param name="topcolor">$PARAM[topcolor_codec]</param>
                 <param name="bottomcolor">$PARAM[bottomcolor]</param>
                 <param name="bottomlabel">$INFO[VideoPlayer.VideoAspect]</param>
                 <param name="toplabel">[UPPERCASE]$INFO[VideoPlayer.VideoCodec][/UPPERCASE]</param>
@@ -1090,7 +1098,7 @@
 
             <!-- FPS -->
             <include content="Info_Codecs_StackedText">
-                <param name="topcolor">$PARAM[topcolor]</param>
+                <param name="topcolor">$PARAM[topcolor_framerate]</param>
                 <param name="bottomcolor">$PARAM[bottomcolor]</param>
                 <param name="bottomlabel">$LOCALIZE[31259]</param>
                 <param name="toplabel">$INFO[Player.Process(VideoFPS)]</param>
@@ -1114,7 +1122,7 @@
                 <param name="type">VideoPlayer</param>
                 <param name="channelscolor">$PARAM[topcolor]</param>
                 <param name="iconcolor">$PARAM[topcolor]</param>
-                <param name="imagecolor">$PARAM[topcolor]</param>
+                <param name="imagecolor">$PARAM[topcolor_audiochannels]</param>
                 <param name="left">-10</param>
             </include>
 

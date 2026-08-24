@@ -11,7 +11,7 @@
             <param name="dialog_right">1280</param>
             <param name="itemline">$INFO[Player.FileNameAndPath]</param>
             <param name="include_itemline">!String.IsEmpty(Player.FileNameAndPath)</param>
-            <param name="include_osd_codecs">true</param>
+            <param name="include_codecs">true</param>
         </include>
     </controls>        
 </window>

@@ -2910,15 +2910,15 @@
             <!-- Process -->
             <item>
                 <label>$LOCALIZE[38031]</label>
-                <label2>$INFO[Player.Process(videodar),, $LOCALIZE[31260]]$INFO[Player.Process(videofps), • , $LOCALIZE[31259]]$INFO[VideoPlayer.VideoBitrate, • [UPPERCASE], kb/s[/UPPERCASE]]</label2>
+                <label2>$INFO[VideoPlayer.VideoCodec,[UPPERCASE],[/UPPERCASE]]$INFO[Player.Process(videodar), • , $LOCALIZE[31260]]$INFO[Player.Process(videofps), • , $LOCALIZE[31259]]$INFO[VideoPlayer.VideoBitrate, • [UPPERCASE], kb/s[/UPPERCASE]]</label2>
             </item>
             <item>
                 <label>$LOCALIZE[169]</label>
                 <label2>$INFO[Player.Process(videowidth),, x ]$INFO[Player.Process(videoheight),, $LOCALIZE[31261]]</label2>
             </item>
             <item>
-                <label>$LOCALIZE[20474]</label>
-                <label2>$VAR[Label_VideoHDRCodec,[UPPERCASE],[/UPPERCASE]]$INFO[VideoPlayer.VideoCodec, • [UPPERCASE],[/UPPERCASE]]</label2>
+                <label>$LOCALIZE[39191]</label>
+                <label2>$VAR[Label_VideoHDRCodec,[UPPERCASE],[/UPPERCASE]]</label2>
             </item>
             <include content="Items_DialogCustom_ProcessInfo_VideoObject">
                 <param name="label">$LOCALIZE[31216]</param>

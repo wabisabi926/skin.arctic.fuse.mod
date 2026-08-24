@@ -12,6 +12,8 @@
             <param name="header">$INFO[Window.Property(header)]</param>
             <param name="itemline">$INFO[Window.Property(itemline)]</param>
             <param name="include_itemline">!String.IsEmpty(Window.Property(itemline))</param>
+            <param name="include_codecs">Skin.String(InfoDialog.NavigationStyle,Wall) | [!Skin.String(InfoDialog.NavigationStyle,Wall) + String.IsEmpty(Skin.String(Furniture.BottomLeft.Enable))]</param>
+            <param name="codecs">Info_Media</param>
         </include>
 
     </controls>
