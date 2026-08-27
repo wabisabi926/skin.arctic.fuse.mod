@@ -139,7 +139,7 @@
         <param name="listitem">ListItem</param>
         <definition>
             <control type="group">
-                <visible>[String.IsEmpty($PARAM[container]$PARAM[listitem].Art(clearlogo)) + String.IsEmpty($PARAM[container]$PARAM[listitem].Art(tvshow.clearlogo)) + String.IsEmpty($PARAM[container]$PARAM[listitem].Art(artist.clearlogo))]</visible>
+                <visible>![!String.IsEmpty($PARAM[container]$PARAM[listitem].Art(clearlogo)) | !String.IsEmpty($PARAM[container]$PARAM[listitem].Art(tvshow.clearlogo)) | [!String.IsEmpty($PARAM[container]$PARAM[listitem].Art(artist.clearlogo)) + [String.IsEqual($PARAM[container]$PARAM[listitem].DBType,song) | String.IsEqual($PARAM[container]$PARAM[listitem].DBType,album) | String.IsEqual($PARAM[container]$PARAM[listitem].DBType,artist) | String.IsEqual($PARAM[container]$PARAM[listitem].DBType,musicvideo)]]]</visible>
                 <include content="Info_Title_Label" condition="Skin.HasSetting(Furniture.EnableLeftHeader) + $PARAM[titlelargelogo]">
                     <param name="container">$PARAM[container]</param>
                     <param name="listitem">$PARAM[listitem]</param>
@@ -196,6 +196,7 @@
                     <visible>String.IsEmpty($PARAM[container]$PARAM[listitem].Art(clearlogo))</visible>
                     <visible>String.IsEmpty($PARAM[container]$PARAM[listitem].Art(tvshow.clearlogo))</visible>
                     <visible>!String.IsEmpty($PARAM[container]$PARAM[listitem].Art(artist.clearlogo))</visible>
+                    <visible>[String.IsEqual($PARAM[container]$PARAM[listitem].DBType,song) | String.IsEqual($PARAM[container]$PARAM[listitem].DBType,album) | String.IsEqual($PARAM[container]$PARAM[listitem].DBType,artist) | String.IsEqual($PARAM[container]$PARAM[listitem].DBType,musicvideo)]</visible>
                 </control>
             </include>
             <include content="Object_Control" condition="!Skin.HasSetting(Furniture.EnableLeftHeader) | [Skin.HasSetting(Furniture.EnableLeftHeader) + !$PARAM[titlelargelogo]]">
@@ -235,6 +236,7 @@
                     <visible>String.IsEmpty($PARAM[container]$PARAM[listitem].Art(clearlogo))</visible>
                     <visible>String.IsEmpty($PARAM[container]$PARAM[listitem].Art(tvshow.clearlogo))</visible>
                     <visible>!String.IsEmpty($PARAM[container]$PARAM[listitem].Art(artist.clearlogo))</visible>
+                    <visible>[String.IsEqual($PARAM[container]$PARAM[listitem].DBType,song) | String.IsEqual($PARAM[container]$PARAM[listitem].DBType,album) | String.IsEqual($PARAM[container]$PARAM[listitem].DBType,artist) | String.IsEqual($PARAM[container]$PARAM[listitem].DBType,musicvideo)]</visible>
                 </control>
             </include>
         </definition>
@@ -1102,6 +1104,11 @@
                 <param name="label">$INFO[$PARAM[container]ListItem.Rating]</param>
                 <param name="visible">!String.IsEmpty($PARAM[container]ListItem.Rating) + [String.IsEqual($PARAM[container]ListItem.DBType,album) | String.IsEqual($PARAM[container]ListItem.DBType,song)]</param>
             </include>
+            <include content="Info_IconLine_Object" condition="![$PARAM[is_player]]">
+                <param name="icon">&#xf005;</param>
+                <param name="label">$INFO[$PARAM[container]ListItem.UserRating]</param>
+                <param name="visible">String.IsEmpty($PARAM[container]ListItem.Rating) + !String.IsEmpty($PARAM[container]ListItem.UserRating) + [String.IsEqual($PARAM[container]ListItem.DBType,album) | String.IsEqual($PARAM[container]ListItem.DBType,song)]</param>
+            </include>
 
         </definition>
     </include>
@@ -1205,6 +1212,7 @@
 
                     <include content="Info_Viewline_Label" condition="$PARAM[custom_label_condition]">
                         <label>$PARAM[custom_label]</label>
+                        <param name="textcolor_base">$PARAM[textcolor_base]</param>
                     </include>
 
                     <orientation>horizontal</orientation>
@@ -1741,7 +1749,7 @@
             </include>
             <include content="Info_Line_VideoQuality_Object">
                 <param name="colordiffuse">$PARAM[colordiffuse]</param>
-                <param name="label">DOLBY ATMOS $PARAM[label_audiochannel]</param>
+                <param name="label">DD+ ATMOS $PARAM[label_audiochannel]</param>
                 <param name="visible">$PARAM[visible] + $PARAM[visible_audiochannel] + String.IsEqual($PARAM[listitem_audiocodec],eac3_ddp_atmos)</param>
             </include>
             <include content="Info_Line_VideoQuality_Object">
@@ -2665,14 +2673,34 @@
         <value>main_fg_90</value>
     </variable>
 
-    <variable name="Info_Codecs_AspectRatio_Color_main_fg_90">
+    <variable name="Info_Codecs_Resolution_Color_dialog_fg_90">
+        <value condition="Skin.String(Furniture.CodecStyle,Colour)">fffc0a0a</value>
+        <value>dialog_fg_90</value>
+    </variable>
+
+    <variable name="Info_Codecs_Codec_Color_main_fg_90">
         <value condition="Skin.String(Furniture.CodecStyle,Colour)">ff2091ea</value>
         <value>main_fg_90</value>
+    </variable>
+
+    <variable name="Info_Codecs_Codec_Color_dialog_fg_90">
+        <value condition="Skin.String(Furniture.CodecStyle,Colour)">ff2091ea</value>
+        <value>dialog_fg_90</value>
     </variable>
 
     <variable name="Info_Codecs_AudioChannels_Color_main_fg_90">
         <value condition="Skin.String(Furniture.CodecStyle,Colour)">ffce953a</value>
         <value>main_fg_90</value>
+    </variable>
+
+    <variable name="Info_Codecs_AudioChannels_Color_dialog_fg_90">
+        <value condition="Skin.String(Furniture.CodecStyle,Colour)">ffce953a</value>
+        <value>dialog_fg_90</value>
+    </variable>
+
+    <variable name="Info_Codecs_FrameRate_Color_dialog_fg_90">
+        <value condition="Skin.String(Furniture.CodecStyle,Colour)">ff008000</value>
+        <value>dialog_fg_90</value>
     </variable>
 
     <include name="Info_Codecs_Base">
@@ -3052,57 +3080,34 @@
             </control>
 
             <!-- VIDEO RESOLUTION-->
-            <!-- 4K -->
             <include content="Info_Codecs_StackedText">
                 <param name="topcolor">$VAR[Info_Codecs_Resolution_Color_main_fg_90]</param>
                 <param name="bottomcolor">main_fg_70</param>
-                <param name="toplabel">4K</param>
-                <param name="bottomlabel">UHD</param>
+                <param name="toplabel">$VAR[Label_Info_VideoQuality]</param>
+                <param name="bottomlabel">$VAR[Label_Info_VideoResolution]</param>
                 <param name="width">46</param>
                 <param name="left">-4</param>
-                <param name="visible">$PARAM[visible] + String.IsEqual($PARAM[container]ListItem.VideoResolution,4K) + !String.IsEmpty($PARAM[container]ListItem.VideoResolution)</param>
-            </include>
-
-            <!-- HD -->
-            <include content="Info_Codecs_StackedText">
-                <param name="topcolor">$VAR[Info_Codecs_Resolution_Color_main_fg_90]</param>
-                <param name="bottomcolor">main_fg_70</param>
-                <param name="toplabel">HD</param>
-                <param name="bottomlabel">$INFO[$PARAM[container]ListItem.VideoResolution]</param>
-                <param name="width">46</param>
-                <param name="left">-4</param>
-                <param name="visible">$PARAM[visible] + !String.IsEqual($PARAM[container]ListItem.VideoResolution,4K) + Integer.IsGreater($PARAM[container]ListItem.VideoResolution,719) + !String.IsEmpty($PARAM[container]ListItem.VideoResolution)</param>
-            </include>
-
-            <!-- SD -->
-            <include content="Info_Codecs_StackedText">
-                <param name="topcolor">$VAR[Info_Codecs_Resolution_Color_main_fg_90]</param>
-                <param name="bottomcolor">main_fg_70</param>
-                <param name="toplabel">SD</param>
-                <param name="bottomlabel">$INFO[$PARAM[container]ListItem.VideoResolution]</param>
-                <param name="width">46</param>
-                <param name="left">-4</param>
-                <param name="visible">$PARAM[visible] + !String.IsEqual($PARAM[container]ListItem.VideoResolution,4K) + !Integer.IsGreater($PARAM[container]ListItem.VideoResolution,719) + !String.IsEmpty($PARAM[container]ListItem.VideoResolution)</param>
+                <param name="visible">$PARAM[visible] + !String.IsEmpty($PARAM[container]ListItem.VideoResolution)</param>
             </include>
 
             <!-- VIDEO CODEC + ASPECT -->
             <include content="Info_Codecs_StackedText">
-                <param name="topcolor">$VAR[Info_Codecs_AspectRatio_Color_main_fg_90]</param>
+                <param name="topcolor">$VAR[Info_Codecs_Codec_Color_main_fg_90]</param>
                 <param name="bottomcolor">main_fg_70</param>
-                <param name="bottomlabel">[UPPERCASE]$INFO[$PARAM[container]ListItem.VideoCodec][/UPPERCASE]</param>
-                <param name="toplabel">$INFO[$PARAM[container]ListItem.VideoAspect]</param>
+                <param name="bottomlabel">$INFO[$PARAM[container]ListItem.VideoAspect]</param>
+                <param name="toplabel">[UPPERCASE]$INFO[$PARAM[container]ListItem.VideoCodec][/UPPERCASE]</param>
                 <param name="left">-10</param>
                 <param name="visible">$PARAM[visible] + !String.IsEmpty($PARAM[container]ListItem.VideoCodec) + !String.IsEmpty($PARAM[container]ListItem.VideoAspect)</param>
             </include>
 
-            <!-- 3D STEREOSCOPIC -->
+            <!-- HDRType -->
             <include content="Info_Codecs_MonoIcon">
-                <param name="icon">other/3D.png</param>
-                <param name="width">48</param>
-                <param name="iconwidth">64</param>
-                <param name="iconheight">56</param>
+                <param name="icon">$INFO[$PARAM[container]ListItem.HdrType,hdr/,.png]</param>
+                <param name="width">96</param>
+                <param name="iconwidth">96</param>
+                <param name="iconheight">48</param>
                 <param name="left">-10</param>
-                <param name="visible">$PARAM[visible] + $PARAM[container]ListItem.IsStereoscopic</param>
+                <param name="visible">$PARAM[visible] + !String.IsEmpty($PARAM[container]ListItem.HdrType)</param>
             </include>
 
             <!-- AUDIO CHANNELS -->
@@ -3116,41 +3121,30 @@
             </include>
 
             <!-- AUDIO CODEC -->
-            <!-- AAC -->
             <include content="Info_Codecs_MonoIcon">
-                <param name="icon">audio/aac.png</param>
-                <param name="width">80</param>
-                <param name="iconwidth">94</param>
+                <param name="icon">$VAR[Image_ListItem_AudioCodec]</param>
+                <param name="width">96</param>
+                <param name="iconwidth">96</param>
                 <param name="iconheight">48</param>
                 <param name="left">-10</param>
-                <param name="visible">$PARAM[visible] + [String.IsEqual($PARAM[container]ListItem.AudioCodec,aac) | String.IsEqual($PARAM[container]ListItem.AudioCodec,aac_lc) | String.IsEqual($PARAM[container]ListItem.AudioCodec,aac_ssr) | String.IsEqual($PARAM[container]ListItem.AudioCodec,aac_ltp) | String.IsEqual($PARAM[container]ListItem.AudioCodec,he_aac) | String.IsEqual($PARAM[container]ListItem.AudioCodec,he_aac_v2) | String.IsEqual($PARAM[container]ListItem.AudioCodec,aac_latm)]</param>
+                <param name="visible">$PARAM[visible] + !String.IsEmpty($PARAM[container]ListItem.AudioCodec)</param>
             </include>
 
-            <!-- Other -->
+            <!-- 3D STEREOSCOPIC -->
             <include content="Info_Codecs_MonoIcon">
-                <param name="icon">audio/$INFO[$PARAM[container]ListItem.AudioCodec].png</param>
-                <param name="width">80</param>
-                <param name="iconwidth">94</param>
-                <param name="iconheight">48</param>
-                <param name="left">-10</param>
-                <param name="visible">$PARAM[visible] + !String.IsEmpty($PARAM[container]ListItem.AudioCodec) + ![String.IsEqual($PARAM[container]ListItem.AudioCodec,aac) | String.IsEqual($PARAM[container]ListItem.AudioCodec,aac_lc) | String.IsEqual($PARAM[container]ListItem.AudioCodec,aac_ssr) | String.IsEqual($PARAM[container]ListItem.AudioCodec,aac_ltp) | String.IsEqual($PARAM[container]ListItem.AudioCodec,he_aac) | String.IsEqual($PARAM[container]ListItem.AudioCodec,he_aac_v2) | String.IsEqual($PARAM[container]ListItem.AudioCodec,aac_latm)]</param>
-            </include>
-
-            <!-- HDRType -->
-            <include content="Info_Codecs_MonoIcon">
-                <param name="icon">$INFO[$PARAM[container]ListItem.HdrType,hdr/,.png]</param>
-                <param name="width">80</param>
+                <param name="icon">version/3D.png</param>
+                <param name="width">48</param>
                 <param name="iconwidth">64</param>
-                <param name="iconheight">64</param>
+                <param name="iconheight">56</param>
                 <param name="left">-10</param>
-                <param name="visible">$PARAM[visible] + !String.IsEmpty($PARAM[container]ListItem.HdrType)</param>
+                <param name="visible">$PARAM[visible] + $PARAM[container]ListItem.IsStereoscopic</param>
             </include>
 
             <!-- Other -->
             <include content="Info_Codecs_MonoIcon">
                 <param name="icon">$INFO[$PARAM[container]ListItem.VideoVersionName,version/,.png]</param>
-                <param name="width">80</param>
-                <param name="iconwidth">48</param>
+                <param name="width">96</param>
+                <param name="iconwidth">96</param>
                 <param name="iconheight">48</param>
                 <param name="left">-22</param>
                 <param name="visible">$PARAM[visible] + !String.IsEmpty($PARAM[container]ListItem.VideoVersionName)</param>
@@ -3941,7 +3935,7 @@
                 <visible>$PARAM[visible]</visible>
             </control>
             <include content="Info_Codecs_StackedText">
-                <param name="topcolor">$VAR[Info_Codecs_AspectRatio_Color_main_fg_90]</param>
+                <param name="topcolor">$VAR[Info_Codecs_Codec_Color_main_fg_90]</param>
                 <param name="bottomcolor">main_fg_70</param>
                 <param name="toplabel">$INFO[$PARAM[container]ListItem.SampleRate]</param>
                 <param name="bottomlabel">$INFO[$PARAM[container]ListItem.BitRate,, kbps]</param>

@@ -274,12 +274,12 @@
         <value condition="!String.IsEmpty(ListItem.Art(discart))">$INFO[ListItem.Art(discart)]</value>
         <value condition="!String.IsEmpty(ListItem.Art(album.discart))">$INFO[ListItem.Art(album.discart)]</value>
         <value condition="!String.IsEmpty(ListItem.Art(thumb)) + !String.IsEqual(ListItem.Art(thumb),ListItem.Icon) + [String.IsEqual(ListItem.DBType,album) | String.IsEqual(ListItem.DBType,song) | String.IsEqual(ListItem.DBType,artist)]">$INFO[ListItem.Art(thumb)]</value>
-        <value condition="!String.IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
-        <value condition="!String.IsEmpty(ListItem.Art(season.fanart))">$INFO[ListItem.Art(season.fanart)]</value>
-        <value condition="!String.IsEmpty(ListItem.Art(tvshow.fanart))">$INFO[ListItem.Art(tvshow.fanart)]</value>
         <value condition="!String.IsEmpty(ListItem.Art(poster))">$INFO[ListItem.Art(poster)]</value>
         <value condition="!String.IsEmpty(ListItem.Art(season.poster))">$INFO[ListItem.Art(season.poster)]</value>
         <value condition="!String.IsEmpty(ListItem.Art(tvshow.poster))">$INFO[ListItem.Art(tvshow.poster)]</value>
+        <value condition="!String.IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
+        <value condition="!String.IsEmpty(ListItem.Art(season.fanart))">$INFO[ListItem.Art(season.fanart)]</value>
+        <value condition="!String.IsEmpty(ListItem.Art(tvshow.fanart))">$INFO[ListItem.Art(tvshow.fanart)]</value>
         <value condition="!String.IsEmpty(ListItem.Art(thumb)) + !String.IsEqual(ListItem.Art(thumb),ListItem.Icon)">$INFO[ListItem.Art(thumb)]</value>
 
         <value condition="!String.IsEmpty(ListItem.Property(icon))" />
@@ -535,12 +535,12 @@
         <value condition="Player.Rewinding">special://skin/extras/icons/backward.png</value>
         <value>special://skin/extras/icons/play2.png</value>
     </variable>
-    
+
     <variable name="Image_OSD_HDRPopUp">
-        <value condition="String.IsEqual(VideoPlayer.HdrType,dolbyvision)">flags/dolbyvision_new.png</value>
-        <value condition="String.IsEqual(VideoPlayer.HdrType,hdr10plus)">flags/hdr10+_new.png</value>
-        <value condition="String.IsEqual(VideoPlayer.HdrType,hdr10)">flags/hdr10_new.png</value>
-        <value condition="String.IsEqual(VideoPlayer.HdrType,hlg)">flags/hlg_new.png</value>
+        <value condition="String.IsEqual(VideoPlayer.HdrType,dolbyvision)">flags/$VAR[Info_Codecs_FlagType_Path]/hdr/dolbyvision.png</value>
+        <value condition="String.IsEqual(VideoPlayer.HdrType,hdr10plus)">flags/$VAR[Info_Codecs_FlagType_Path]/hdr/hdr10plus.png</value>
+        <value condition="String.IsEqual(VideoPlayer.HdrType,hdr10)">flags/$VAR[Info_Codecs_FlagType_Path]/hdr/hdr10.png</value>
+        <value condition="String.IsEqual(VideoPlayer.HdrType,hlg)">flags/$VAR[Info_Codecs_FlagType_Path]/hdr/hlg.png</value>
     </variable>
 
     <variable name="Image_NowPlaying_PlayPause">
@@ -561,6 +561,7 @@
     </variable>
 
     <variable name="Image_CombinedStudio">
+        <value condition="!String.IsEmpty(ListItem.Studio) + !String.Contains(ListItem.Studio,/)">$INFO[ListItem.Studio,resource://resource.images.studios.coloured/,.png]</value>
         <value condition="!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.base_studio))">$INFO[Window(Home).Property(TMDbHelper.ListItem.base_studio),resource://resource.images.studios.coloured/,.png]</value>
         <value condition="!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Network.1.Name))">$INFO[Window(Home).Property(TMDbHelper.ListItem.Network.1.Name),resource://resource.images.studios.coloured/,.png]</value>
         <value condition="!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Studio.1.Name))">$INFO[Window(Home).Property(TMDbHelper.ListItem.Studio.1.Name),resource://resource.images.studios.coloured/,.png]</value>
@@ -682,9 +683,35 @@
         <value>special://skin/extras/icons/arrow-up-z-a.png</value>
     </variable>
 
-    <variable name="Image_OSD_AudioCodec">
-        <value condition="String.IsEqual(VideoPlayer.AudioCodec,aac) | String.IsEqual(VideoPlayer.AudioCodec,aac_lc) | String.IsEqual(VideoPlayer.AudioCodec,aac_ssr) | String.IsEqual(VideoPlayer.AudioCodec,aac_ltp) | String.IsEqual(VideoPlayer.AudioCodec,he_aac) | String.IsEqual(VideoPlayer.AudioCodec,he_aac_v2) | String.IsEqual(VideoPlayer.AudioCodec,aac_latm)">audio/aac.png</value>
+    <variable name="Image_ListItem_AudioCodec">
+        <value condition="String.StartsWith(ListItem.AudioCodec,aac) | String.StartsWith(ListItem.AudioCodec,he_aac)">audio/aac.png</value>
+        <value condition="String.IsEqual(ListItem.AudioCodec,ac3) | String.StartsWith(ListItem.IsEqual,dolbydigital)">audio/ac3.png</value>
+        <value condition="String.StartsWith(ListItem.AudioCodec,dolbypro)">audio/dolbypro.png</value>
+        <value condition="String.IsEqual(ListItem.AudioCodec,dtsma) | String.StartsWith(ListItem.IsEqual,dtshd_ma)">audio/dtshd_ma.png</value>
+        <value condition="String.StartsWith(ListItem.AudioCodec,mp3)">audio/mp3.png</value>
+        <value condition="String.StartsWith(ListItem.AudioCodec,mp4)">audio/mp4.png</value>
+        <value condition="String.IsEqual(ListItem.AudioCodec,ogg) | String.StartsWith(ListItem.IsEqual,vorbis)">audio/ogg.png</value>
+        <value condition="String.StartsWith(ListItem.AudioCodec,pcm)">audio/pcm.png</value>
+        <value condition="String.IsEqual(ListItem.AudioCodec,cook) | String.StartsWith(ListItem.IsEqual,real)">audio/cook.png</value>
+        <value>audio/$INFO[ListItem.AudioCodec].png</value>
+    </variable>
+
+    <variable name="Image_VideoPlayer_AudioCodec">
+        <value condition="String.StartsWith(VideoPlayer.AudioCodec,aac) | String.StartsWith(VideoPlayer.AudioCodec,he_aac)">audio/aac.png</value>
+        <value condition="String.IsEqual(VideoPlayer.AudioCodec,ac3) | String.StartsWith(VideoPlayer.IsEqual,dolbydigital)">audio/ac3.png</value>
+        <value condition="String.StartsWith(VideoPlayer.AudioCodec,dolbypro)">audio/dolbypro.png</value>
+        <value condition="String.IsEqual(VideoPlayer.AudioCodec,dtsma) | String.StartsWith(VideoPlayer.IsEqual,dtshd_ma)">audio/dtshd_ma.png</value>
+        <value condition="String.StartsWith(VideoPlayer.AudioCodec,mp3)">audio/mp3.png</value>
+        <value condition="String.StartsWith(VideoPlayer.AudioCodec,mp4)">audio/mp4.png</value>
+        <value condition="String.IsEqual(VideoPlayer.AudioCodec,ogg) | String.StartsWith(VideoPlayer.IsEqual,vorbis)">audio/ogg.png</value>
+        <value condition="String.StartsWith(VideoPlayer.AudioCodec,pcm)">audio/pcm.png</value>
+        <value condition="String.IsEqual(VideoPlayer.AudioCodec,cook) | String.StartsWith(VideoPlayer.IsEqual,real)">audio/cook.png</value>
         <value>audio/$INFO[VideoPlayer.AudioCodec].png</value>
+    </variable>
+
+    <variable name="Image_ProcessInfo_Logo">
+        <value condition="VideoPlayer.Content(livetv)">special://skin/extras/icons/livetv.png</value>
+        <value>special://skin/extras/icons/video.png</value>
     </variable>
 
     <variable name="Image_Player_RottenTomatoes">

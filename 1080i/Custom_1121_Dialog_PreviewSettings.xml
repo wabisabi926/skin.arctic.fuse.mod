@@ -16,6 +16,13 @@
             <param name="current">String.IsEqual(Window(1121).Property(CustomDialogPreviewSelected),ListItem.Label)</param>
             <param name="resize">!String.IsEmpty(Window(1121).Property(resize))</param>
         </include>
+        <include content="DialogSelect_Viewtypes" condition="String.IsEqual(Window(1121).Property(CustomDialogPreviewItems),Items_Preview_WidgetMode)">
+            <param name="header">$INFO[Window(1121).Property(CustomDialogPreviewTitle)]</param>
+            <param name="include_content">Items_Preview_WidgetMode</param>
+            <param name="icon">$INFO[Container(3).ListItem.Icon]</param>
+            <param name="current">String.IsEqual(Window(1121).Property(CustomDialogPreviewSelected),ListItem.Label)</param>
+            <param name="resize">true</param>
+        </include>
         <include content="DialogSelect_Viewtypes" condition="String.IsEqual(Window(1121).Property(CustomDialogPreviewItems),Items_Settings_ColourPresets)">
             <param name="header">$INFO[Window(1121).Property(CustomDialogPreviewTitle)]</param>
             <param name="include_content">Items_Settings_ColourPresets</param>
