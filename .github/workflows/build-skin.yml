@@ -1,0 +1,116 @@
+name: Build skin zip
+
+# 触发：推送到 douban 分支 / 推送 douban-* 标签 / 手动运行
+on:
+  push:
+    branches: [ douban ]
+    tags: [ 'douban-*' ]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      # addon id / version 一律从 addon.xml 读取，避免两处不一致
+      - name: Read addon metadata
+        id: meta
+        run: |
+          set -euo pipefail
+          ID=$(sed -n 's/^<addon[^>]*id="\([^"]*\)".*/\1/p' addon.xml | head -n1)
+          VER=$(sed -n 's/^<addon[^>]*version="\([^"]*\)".*/\1/p' addon.xml | head -n1)
+          [ -n "$ID" ] && [ -n "$VER" ] || { echo "::error::addon.xml 缺少 id 或 version"; exit 1; }
+          echo "id=$ID"     >> "$GITHUB_OUTPUT"
+          echo "version=$VER" >> "$GITHUB_OUTPUT"
+          echo "zip=${ID}-${VER}.zip" >> "$GITHUB_OUTPUT"
+          echo "构建 ${ID} v${VER}"
+
+      # 出包前的体检：XML 可解析、贴图包在、没有漏解决的冲突标记
+      - name: Sanity checks
+        run: |
+          set -euo pipefail
+          python3 -c "import xml.etree.ElementTree as ET; ET.parse('addon.xml')"
+          [ -f media/Textures.xbt ] || { echo "::error::缺少 media/Textures.xbt"; exit 1; }
+          if grep -rIl --exclude-dir=.git -e '^<<<<<<< ' -e '^>>>>>>> ' . ; then
+            echo "::error::发现未解决的 git 冲突标记"; exit 1
+          fi
+
+      # Kodi 规则：zip 内必须只有一个与 addon id 同名的顶层目录，addon.xml 在其根下
+      - name: Package
+        run: |
+          set -euo pipefail
+          ID='${{ steps.meta.outputs.id }}'
+          STAGE="build/${ID}"
+          mkdir -p "$STAGE"
+          rsync -a \
+            --exclude='.git' \
+            --exclude='.github' \
+            --exclude='.workbuddy-ai' \
+            --exclude='build' \
+            --exclude='.DS_Store' \
+            ./ "$STAGE/"
+          cd build
+          zip -r -q -9 "../${{ steps.meta.outputs.zip }}" "$ID"
+
+      # 自校验：顶层目录唯一且等于 addon id，addon.xml 在正确位置
+      - name: Verify zip layout
+        run: |
+          set -euo pipefail
+          ID='${{ steps.meta.outputs.id }}'
+          ZIP='${{ steps.meta.outputs.zip }}'
+          tops=$(unzip -Z1 "$ZIP" | cut -d/ -f1 | sort -u)
+          [ "$tops" = "$ID" ] || { echo "::error::zip 顶层必须只有 $ID，实际: $tops"; exit 1; }
+          unzip -Z1 "$ZIP" | grep -qx "${ID}/addon.xml" || { echo "::error::zip 内缺少 ${ID}/addon.xml"; exit 1; }
+          echo "文件数: $(unzip -Z1 "$ZIP" | grep -vc '/$')"
+          ls -lh "$ZIP"
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ steps.meta.outputs.zip }}
+          path: ${{ steps.meta.outputs.zip }}
+          if-no-files-found: error
+
+      # 从 afmodchangelog.txt 抽取当前版本段落，去掉 Kodi 的 BBCode
+      - name: Release notes
+        run: |
+          set -euo pipefail
+          python3 - '${{ steps.meta.outputs.version }}' <<'PY'
+          import re, sys
+          ver = sys.argv[1]
+          txt = open('afmodchangelog.txt', encoding='utf-8').read()
+          m = re.search(r'^\[B\]v' + re.escape(ver) + r'\[/B\][ \t]*\n(.*?)(?=^\[B\]v|\Z)',
+                        txt, re.S | re.M)
+          body = m.group(1).strip() if m else ''
+          body = (body.replace('[B]', '**').replace('[/B]', '**')
+                      .replace('[I]', '_').replace('[/I]', '_')
+                      .replace('[CR]', '\n'))
+          head = ('## 安装\n\n'
+                  '下载下方 zip → Kodi → 设置 → 插件 → 从 zip 文件安装\n\n'
+                  '> 皮肤 id `skin.arctic.fuse.mod`，基于上游 v%s + 豆瓣定制\n\n' % ver)
+          open('release_notes.md', 'w', encoding='utf-8').write(
+              head + ('## 更新内容\n\n' + body + '\n' if body else ''))
+          print(open('release_notes.md', encoding='utf-8').read())
+          PY
+
+      # 标签推送或手动运行时才发 Release，普通提交只留 artifact
+      - name: Publish release
+        if: startsWith(github.ref, 'refs/tags/') || github.event_name == 'workflow_dispatch'
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: douban-${{ steps.meta.outputs.version }}
+          name: Arctic Fuse Mod ${{ steps.meta.outputs.version }}
+          body_path: release_notes.md
+          files: ${{ steps.meta.outputs.zip }}
+          fail_on_unmatched_files: true

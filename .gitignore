@@ -1,3 +1,6 @@
 1080i/script-skinvariables-generator-includes*.xml
 1080i/script-skinvariables-skinusers.xml
 1080i/script-skinshortcuts-includes.xml
+
+# WorkBuddy 项目数据目录（非皮肤内容）
+.workbuddy-ai/
