@@ -289,17 +289,17 @@ msgstr "岁"
 #: /1080i/Settings.xml
 msgctxt "#31058"
 msgid "Recently Watched"
-msgstr ""
+msgstr "最近观看"
 
 #: /1080i/Includes_Settings.xml
 msgctxt "#31059"
 msgid "Networks"
-msgstr ""
+msgstr "电视网"
 
 #: /1080i/Includes_Settings.xml
 msgctxt "#31060"
 msgid "Certifications"
-msgstr ""
+msgstr "分级认证"
 
 #: /shortcuts/template.xml
 msgctxt "#31061"
@@ -427,7 +427,7 @@ msgstr "自定义选项"
 #: /1080i/Includes_Views_Combined.xml
 msgctxt "#31087"
 msgid "Combined List Expanded"
-msgstr ""
+msgstr "组合：列表（扩展）"
 
 #: /1080i/Includes_Labels.xml
 msgctxt "#31088"
@@ -437,7 +437,7 @@ msgstr "一旦不需要进一步更改，建议重新锁定。"
 #: /1080i/Includes_Items.xml
 msgctxt "#31089"
 msgid "Garbage"
-msgstr ""
+msgstr "极差"
 
 msgctxt "#31090"
 msgid "In-Progress"
@@ -451,12 +451,12 @@ msgstr "游戏内存档"
 #: /1080i/Includes_Items.xml
 msgctxt "#31092"
 msgid "Bad"
-msgstr ""
+msgstr "差"
 
 #: /1080i/Includes_Items.xml
 msgctxt "#31093"
 msgid "Average"
-msgstr ""
+msgstr "一般"
 
 #: /1080i/Includes_Labels.xml
 msgctxt "#31094"
@@ -563,7 +563,7 @@ msgstr "布局模式"
 #: /1080i/Includes_SkinSettings.xml
 msgctxt "#31115"
 msgid "Aussie Christmas"
-msgstr ""
+msgstr "澳式圣诞"
 
 #: /1080i/Includes_SkinSettings.xml
 msgctxt "#31116"
@@ -752,7 +752,7 @@ msgstr "杂项选项"
 #: /1080i/Includes_Settings.xml
 msgctxt "#31155"
 msgid "Decades"
-msgstr ""
+msgstr "年代"
 
 #: /1080i/Includes_Defaults.xml
 msgctxt "#31156"
@@ -819,12 +819,12 @@ msgstr "列表：方形"
 #: /1080i/Includes_Labels.xml
 msgctxt "#31169"
 msgid "Slower"
-msgstr ""
+msgstr "较慢"
 
 #: /1080i/Includes_Actions.xml
 msgctxt "#31170"
 msgid "Flyer"
-msgstr ""
+msgstr "标签海报"
 
 #: /1080i/SkinSettings.xml
 msgctxt "#31171"
@@ -876,12 +876,12 @@ msgstr "界面元素"
 #: /1080i/Includes_Items.xml
 msgctxt "#31181"
 msgid "Good"
-msgstr ""
+msgstr "好"
 
 #: /1080i/Includes_Items.xml
 msgctxt "#31182"
 msgid "Great"
-msgstr ""
+msgstr "很好"
 
 #: /1080i/Includes_Info.xml
 msgctxt "#31183"
@@ -916,7 +916,7 @@ msgstr "X 秒后自动关闭 OSD"
 #: /1080i/Includes_Items.xml
 msgctxt "#31190"
 msgid "Amazing"
-msgstr ""
+msgstr "很棒"
 
 #: /1080i/SkinSettings.xml
 msgctxt "#31191"
@@ -931,7 +931,7 @@ msgstr "准时结束"
 #: /1080i/Includes_Items.xml
 msgctxt "#31193"
 msgid "Excellent"
-msgstr ""
+msgstr "极佳"
 
 #: /1080i/Includes_Info.xml
 msgctxt "#31194"
@@ -1203,7 +1203,7 @@ msgstr "高亮"
 #: /1080i/Settings.xml
 msgctxt "#31251"
 msgid "Daily"
-msgstr ""
+msgstr "每日"
 
 msgctxt "#31252"
 msgid "Catch-up"
@@ -1266,7 +1266,7 @@ msgstr "预算"
 #: /1080i/Settings.xml
 msgctxt "#31266"
 msgid "Monthly"
-msgstr ""
+msgstr "每月"
 
 #: /1080i/Includes_Labels.xml
 msgctxt "#31267"
@@ -2035,7 +2035,7 @@ msgstr "章节"
 #: /1080i/Includes_DialogInfo.xml
 msgctxt "#31430"
 msgid "plays"
-msgstr ""
+msgstr "次播放"
 
 #: /1080i/Includes_Views_Row.xml
 msgctxt "#31431"
@@ -2435,7 +2435,7 @@ msgstr "一氧化碳"
 #: /1080i/Includes_SkinSettings.xml
 msgctxt "#31510"
 msgid "Seasonal Themes"
-msgstr ""
+msgstr "季节主题"
 
 #: /1080i/Custom_1115_Dialog_Shortcuts_Window.xml
 msgctxt "#31511"
@@ -2630,12 +2630,12 @@ msgstr "[B]墙视图[/B] 在横向小组件选择栏下方以网格形式展示�
 #: /1080i/Includes_Views_Combined.xml
 msgctxt "#31549"
 msgid "Combined Flyer"
-msgstr ""
+msgstr "组合：标签海报"
 
 #: /1080i/Includes_View_Wall.xml
 msgctxt "#31550"
 msgid "Flyer Wall"
-msgstr ""
+msgstr "标签海报墙"
 
 #: /1080i/Includes_Shortcuts_Window.xml
 msgctxt "#31551"
@@ -2645,7 +2645,7 @@ msgstr "适配 $INFO [Container (303).ListItem.Label] 侧边菜单的小组件"
 #: /1080i/Custom_1115_Dialog_Shortcuts_Window.xml
 msgctxt "#31552"
 msgid "Next Aired"
-msgstr ""
+msgstr "下集预告"
 
 #: /1080i/Includes_Weather_Forecast.xml
 msgctxt "#31553"
