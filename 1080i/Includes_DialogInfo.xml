@@ -3679,6 +3679,11 @@
                     <param name="label">$INFO[Window(Home).Property(TMDbHelper.ListItem.Emmy_Wins),x,]</param>
                     <param name="visible">$EXP[Exp_Ratings_Fill_Emmys]</param>
                 </include>
+                <include content="Info_Line_Rating">
+                    <param name="icon">flags/$VAR[Info_Line_Rating_Style]/ratings/douban.png</param>
+                    <param name="label">$INFO[Window(Home).Property(TMDbHelper.ListItem.Douban_Rating)]</param>
+                    <param name="visible">$EXP[Exp_Ratings_Fill_Douban]</param>
+                </include>
             </control>
 
             <!-- Spacer -->
@@ -3737,6 +3742,11 @@
                     <param name="icon">flags/$VAR[Info_Line_Rating_Style]/ratings/emmys.png</param>
                     <param name="label">$INFO[Window(Home).Property(TMDbHelper.ListItem.Emmy_Wins),x,]</param>
                     <param name="visible">!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Emmy_Wins)) + ![$EXP[Exp_Ratings_Fill_Emmys]] + $EXP[Exp_Ratings_Empty_Fallback]</param>
+                </include>
+                <include content="Info_Line_Rating">
+                    <param name="icon">flags/$VAR[Info_Line_Rating_Style]/ratings/douban.png</param>
+                    <param name="label">$INFO[Window(Home).Property(TMDbHelper.ListItem.Douban_Rating)]</param>
+                    <param name="visible">!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Douban_Rating)) + ![$EXP[Exp_Ratings_Fill_Douban]]</param>
                 </include>
             </control>
         </control>
